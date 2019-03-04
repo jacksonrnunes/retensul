@@ -1,0 +1,23 @@
+{
+    "name": "jtgrimes/laravelodbc",
+    "description": "Adds an ODBC driver to Laravel4",
+    "keywords": ["laravel","database","odbc"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "J.T. Grimes",
+            "email": "jtgrimes@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+		"illuminate/database": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "jtgrimes\\Laravelodbc": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

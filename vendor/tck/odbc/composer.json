@@ -1,0 +1,21 @@
+{
+    "name": "tck/odbc",
+    "description": "ODBC Connector for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tck",
+            "email": "ben@thecreativekind.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "TCK\\Odbc": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
