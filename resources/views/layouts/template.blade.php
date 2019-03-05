@@ -78,6 +78,24 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle rounded-bottom" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mercado Livre
+                    </a>
+                    <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <span class="bar-navegation"></span>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link rounded-bottom" href="MeliCategories">
+                                Ver Categorias
+                            </a>                                
+                        </li>    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link rounded-bottom" href="MeliProducts">
+                                Ver Produtos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 
             </ul>
         </div>

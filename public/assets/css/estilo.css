@@ -12,7 +12,7 @@
     margin:0;
     list-style: none;
     background-color: #3E4095;
-    color:000;
+    color:#FFF;
  
 }
 #menu, #menu_lateral{
@@ -39,7 +39,7 @@
 #menu > li > .sub-menu > li > sub-menu > li:hover > a, 
 #menu_lateral > ul > li:hover > a
 {
-    background-color: #000;
+    background-color: #fff;
     color: #3E4095;
 }
 #menu li:hover > .sub-menu{
@@ -54,7 +54,7 @@
     text-decoration: none;
     display: block;
     padding: 10px 10px;
-    color:#000;
+    color:#FFF;
     font-family: "Myriad pro";
     font-size: 16px;
 }
@@ -62,7 +62,7 @@
     text-decoration: none;
     display: block;
     padding: 10px 10px;
-    color:#000;
+    color:#FFF;
     font-family: "Myriad pro";
     font-size: 12px;
 }
@@ -97,7 +97,7 @@ tbody> tr.even:hover > td {
     border-style: solid;
     border-color: #000;
     border-spacing: 0px;
-   //cellspacing:0px;
+   
     padding: 2px 2px 2px 2px;
     border-radius: 5px;
     font-family: verdana; 
@@ -112,7 +112,7 @@ tbody> tr.even:hover > td {
     border-style: solid;
     border-color: #000;
     border-spacing: 0px;
-   //cellspacing:0px;
+   
     padding: 2px 2px 2px 2px;
     border-radius: 5px;
     font-family: verdana; 

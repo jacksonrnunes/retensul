@@ -50,6 +50,8 @@ Route::get('/pedido/deletar/{id}', 'Painel\Tb_pedidoController@destroy');
 
 Route::get('/vendedores', 'Painel\VendedoresController@index');
 
+Route::get('/MeliCategories', 'Painel\MeliCategoriesController@buscar');
+
 
 
 
