@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="0.9.16">
+ <project-name>modelo db</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Connection Type" value="MySQL" />
+   <property key="Logical" value="retensul_xampp" />
+   <property key="JDBC URL" value="jdbc:mysql://localhost:3306/retensul" />
+   <property key="UID" value="root" />
+   <property key="PWD" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+  <data-source id="DS2">
+   <property key="Connection Type" value="MySQL" />
+   <property key="Logical" value="Modelo de Dados" />
+   <property key="JDBC URL" value="jdbc:mysql://localhost:3306/retensul" />
+   <property key="UID" value="root" />
+   <property key="PWD" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+  <database id="DB0" populated="true" UUID="bffa2e9d-52bc-48b4-9f96-8db9209ebbd7" dbcs-ref="DS2" name="Modelo de Dados" physicalName="retensul_xampp" >
+   <catalog id="CAT1" populated="true" UUID="956a393e-aec5-425b-b68f-7033aee774ad" name="information_schema" nativeTerm="database" physicalName="information_schema" >
+   </catalog>
+   <catalog id="CAT2" populated="true" UUID="fc8fbe50-50d9-4544-91d4-cc3a968a9756" name="ana_carine_fotografia" nativeTerm="database" physicalName="ana_carine_fotografia" >
+    <table id="TAB3" populated="true" UUID="5b85e24b-1ef2-4653-b5ac-574fd664513d" name="tb_assets" objectType="TABLE" physicalName="tb_assets" remarks="" >
+     <folder id="FOLTAB31" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL4" populated="true" UUID="53a39110-5a72-4699-9aed-2eab4aa2faa4" autoIncrement="true" defaultValue="" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="Primary Key" scale="0" sourceDataTypeName="INT UNSIGNED" type="4" />
+      <column id="COL5" populated="true" UUID="9a1b6acf-c619-443e-8a0a-e776e43548b2" autoIncrement="false" defaultValue="0" name="parent_id" nullable="0" physicalName="parent_id" precision="10" referenceCount="1" remarks="Nested set parent." scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL6" populated="true" UUID="a2afa95f-0ec1-47dd-a2e6-1af6dd4f6102" autoIncrement="false" defaultValue="0" name="lft" nullable="0" physicalName="lft" precision="10" referenceCount="1" remarks="Nested set lft." scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL7" populated="true" UUID="1392a116-e6e3-4447-99be-948f45486fb1" autoIncrement="false" defaultValue="0" name="rgt" nullable="0" physicalName="rgt" precision="10" referenceCount="1" remarks="Nested set rgt." scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL8" populated="true" UUID="ef1406e2-3317-491a-b760-d203809044f5" autoIncrement="false" defaultValue="" name="level" nullable="0" physicalName="level" precision="10" referenceCount="1" remarks="The cached level in the nested tree." scale="0" sourceDataTypeName="INT UNSIGNED" type="4" />
+      <column id="COL9" populated="true" UUID="51357b39-fba3-40e3-b407-5cebbf9415d0" autoIncrement="false" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" remarks="The unique name for the asset. " scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL10" populated="true" UUID="cc9a86e6-ece9-4555-8af4-3bced96d3e81" autoIncrement="false" defaultValue="" name="title" nullable="0" physicalName="title" precision="100" referenceCount="1" remarks="The descriptive title for the asset." scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL11" populated="true" UUID="44d19a00-9420-4095-9457-2cfa2397b4ff" autoIncrement="false" defaultValue="" name="rules" nullable="0" physicalName="rules" precision="5120" referenceCount="1" remarks="JSON encoded access control." scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      </folder>
+      <folder id="FOLTAB33" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB32" populated="false" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB34" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX12" populated="true" UUID="264972e4-5714-4a9b-af8e-270bb45e55b6" clustered="false" name="tb_assets_PK" physicalName="tb_assets_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC13" populated="true" UUID="7af3f2f1-aaac-4d38-9382-e032cded0741" ascendingOrDescending="UNSPECIFIED" column-ref="COL4" name="id" physicalName="id" />
+      </index>
+      <index id="IDX14" populated="true" UUID="a13e7282-671a-4c52-9132-a4c0e716132e" clustered="false" index-type="BTREE" name="idx_asset_name" physicalName="idx_asset_name" primaryKeyIndex="false" qualifier="" unique="true" >
+       <index-column id="IDC15" populated="true" UUID="a1692354-0171-4da6-91ea-35e3e7820b0d" ascendingOrDescending="ASCENDING" column-ref="COL9" name="name" physicalName="name" />
+      </index>
+      <index id="IDX16" populated="true" UUID="7e70ca68-5ed3-4936-a98c-72a686b957fb" clustered="false" index-type="BTREE" name="idx_lft_rgt" physicalName="idx_lft_rgt" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC17" populated="true" UUID="c01cc831-a527-4d85-b60b-6fa90fd3aef9" ascendingOrDescending="ASCENDING" column-ref="COL6" name="lft" physicalName="lft" />
+       <index-column id="IDC18" populated="true" UUID="23f7687b-a612-43cc-a1cb-490384da624f" ascendingOrDescending="ASCENDING" column-ref="COL7" name="rgt" physicalName="rgt" />
+      </index>
+      <index id="IDX19" populated="true" UUID="5080c413-9670-45f7-98fc-7f61d3848c40" clustered="false" index-type="BTREE" name="idx_parent_id" physicalName="idx_parent_id" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC20" populated="true" UUID="798067d5-ba5f-457f-bb29-5990c6a92281" ascendingOrDescending="ASCENDING" column-ref="COL5" name="parent_id" physicalName="parent_id" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB21" populated="false" UUID="d72206b9-a816-45c1-a991-fdcad3784051" name="tb_associations" objectType="TABLE" physicalName="tb_associations" remarks="" >
+     <folder id="FOLTAB211" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX22" populated="true" UUID="0c6cd309-5bca-4188-935f-a194a77cfe22" clustered="false" name="tb_associations_pk" physicalName="tb_associations_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB23" populated="false" UUID="9f1f252e-deb4-418c-b92e-8d123f6f2523" name="tb_banner_clients" objectType="TABLE" physicalName="tb_banner_clients" remarks="" >
+     <folder id="FOLTAB231" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX24" populated="true" UUID="ed92c900-f658-42b8-a7cb-ed72c488844d" clustered="false" name="tb_banner_clients_pk" physicalName="tb_banner_clients_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB25" populated="false" UUID="25743a72-882e-4eb2-ba2d-2458f477b986" name="tb_banner_tracks" objectType="TABLE" physicalName="tb_banner_tracks" remarks="" >
+     <folder id="FOLTAB251" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX26" populated="true" UUID="7e8b64b2-5c43-49f2-b4f7-36d631d38136" clustered="false" name="tb_banner_tracks_pk" physicalName="tb_banner_tracks_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB27" populated="false" UUID="0006ad40-d120-4a1e-9e63-fc1aca1f7872" name="tb_banners" objectType="TABLE" physicalName="tb_banners" remarks="" >
+     <folder id="FOLTAB271" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX28" populated="true" UUID="395527b8-ddb6-4fc6-bfb9-b10a4dfcdf75" clustered="false" name="tb_banners_pk" physicalName="tb_banners_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB29" populated="false" UUID="4b4888f8-c932-489c-9198-13ae98e68e9d" name="tb_categories" objectType="TABLE" physicalName="tb_categories" remarks="" >
+     <folder id="FOLTAB291" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX30" populated="true" UUID="ded2878a-5801-468c-9c85-d72cb9ec6e6f" clustered="false" name="tb_categories_pk" physicalName="tb_categories_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB31" populated="false" UUID="3b33402d-2a75-4ccb-afca-1d016c849977" name="tb_contact_details" objectType="TABLE" physicalName="tb_contact_details" remarks="" >
+     <folder id="FOLTAB311" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX32" populated="true" UUID="fbf59cae-a49f-4132-971c-f6e228af1db0" clustered="false" name="tb_contact_details_pk" physicalName="tb_contact_details_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB33" populated="false" UUID="367a75a0-0b3d-47b7-832d-1d4584bbc337" name="tb_content" objectType="TABLE" physicalName="tb_content" remarks="" >
+     <folder id="FOLTAB331" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX34" populated="true" UUID="c1ba1969-a407-4f2b-b5d4-4b36f572f21f" clustered="false" name="tb_content_pk" physicalName="tb_content_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB35" populated="false" UUID="8054f9e8-8476-4c24-85c3-b24f395f0eb9" name="tb_content_frontpage" objectType="TABLE" physicalName="tb_content_frontpage" remarks="" >
+     <folder id="FOLTAB351" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX36" populated="true" UUID="bf5e8b53-970e-4035-b3d6-5062f015ae8b" clustered="false" name="tb_content_frontpage_pk" physicalName="tb_content_frontpage_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB37" populated="false" UUID="85f6a7be-64b5-4972-893b-9cda17bbd721" name="tb_content_rating" objectType="TABLE" physicalName="tb_content_rating" remarks="" >
+     <folder id="FOLTAB371" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX38" populated="true" UUID="92377848-862d-4910-a6dc-90e8bcd72a69" clustered="false" name="tb_content_rating_pk" physicalName="tb_content_rating_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB39" populated="false" UUID="860e508c-a672-4482-8966-b9735c2985c7" name="tb_core_log_searches" objectType="TABLE" physicalName="tb_core_log_searches" remarks="" >
+     <folder id="FOLTAB391" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX40" populated="true" UUID="744aa8bd-2501-44e8-87e5-4f690afc38b2" clustered="false" name="tb_core_log_searches_pk" physicalName="tb_core_log_searches_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB41" populated="false" UUID="945b0c2a-1c69-42d8-a6ab-252fb58dba79" name="tb_extensions" objectType="TABLE" physicalName="tb_extensions" remarks="" >
+     <folder id="FOLTAB411" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX42" populated="true" UUID="73bc06fc-0564-4f2d-b051-2e54942d21ec" clustered="false" name="tb_extensions_pk" physicalName="tb_extensions_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB43" populated="false" UUID="a671c126-9ca8-40e5-9b9c-c3dfab0111ad" name="tb_finder_filters" objectType="TABLE" physicalName="tb_finder_filters" remarks="" >
+     <folder id="FOLTAB431" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX44" populated="true" UUID="e745c54a-67d0-4a7b-9faa-164700f1efa1" clustered="false" name="tb_finder_filters_pk" physicalName="tb_finder_filters_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB45" populated="false" UUID="3b8ff582-f561-498d-9d48-3db64c30c4b2" name="tb_finder_links" objectType="TABLE" physicalName="tb_finder_links" remarks="" >
+     <folder id="FOLTAB451" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX46" populated="true" UUID="08b28960-6f12-4c2e-9e46-3ad6525a1811" clustered="false" name="tb_finder_links_pk" physicalName="tb_finder_links_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB47" populated="false" UUID="7add6f90-c452-4c1b-8ff5-d762a8fe2539" name="tb_finder_links_terms0" objectType="TABLE" physicalName="tb_finder_links_terms0" remarks="" >
+     <folder id="FOLTAB471" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX48" populated="true" UUID="040226fe-84eb-4a04-b6de-e85fdc0a3d52" clustered="false" name="tb_finder_links_terms0_pk" physicalName="tb_finder_links_terms0_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB49" populated="false" UUID="d02f8a1c-f623-49ee-8f71-3b9473942efa" name="tb_finder_links_terms1" objectType="TABLE" physicalName="tb_finder_links_terms1" remarks="" >
+     <folder id="FOLTAB491" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX50" populated="true" UUID="c3c69853-4625-497d-bf6b-54fbe808b7b4" clustered="false" name="tb_finder_links_terms1_pk" physicalName="tb_finder_links_terms1_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB51" populated="false" UUID="665957fe-cb07-45a9-94cd-6229b9d1adcb" name="tb_finder_links_terms2" objectType="TABLE" physicalName="tb_finder_links_terms2" remarks="" >
+     <folder id="FOLTAB511" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX52" populated="true" UUID="654afe28-ad4b-496b-a858-3c477a423dd8" clustered="false" name="tb_finder_links_terms2_pk" physicalName="tb_finder_links_terms2_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB53" populated="false" UUID="f21a0bbb-a737-4680-b9b8-f29418030c73" name="tb_finder_links_terms3" objectType="TABLE" physicalName="tb_finder_links_terms3" remarks="" >
+     <folder id="FOLTAB531" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX54" populated="true" UUID="042a224d-020e-4536-b647-e6d7eaedd299" clustered="false" name="tb_finder_links_terms3_pk" physicalName="tb_finder_links_terms3_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB55" populated="false" UUID="31a9772f-4701-483d-8160-376bb86a9127" name="tb_finder_links_terms4" objectType="TABLE" physicalName="tb_finder_links_terms4" remarks="" >
+     <folder id="FOLTAB551" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX56" populated="true" UUID="1ec72d12-5d58-47af-85c4-0f0436abf5fd" clustered="false" name="tb_finder_links_terms4_pk" physicalName="tb_finder_links_terms4_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB57" populated="false" UUID="58efec17-c0a2-44bc-b128-d38b059154a0" name="tb_finder_links_terms5" objectType="TABLE" physicalName="tb_finder_links_terms5" remarks="" >
+     <folder id="FOLTAB571" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX58" populated="true" UUID="8ad39ae2-0549-41c7-a686-2a96419f12f6" clustered="false" name="tb_finder_links_terms5_pk" physicalName="tb_finder_links_terms5_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB59" populated="false" UUID="d0d9e681-ea58-4126-9d2f-1b2b6491843a" name="tb_finder_links_terms6" objectType="TABLE" physicalName="tb_finder_links_terms6" remarks="" >
+     <folder id="FOLTAB591" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX60" populated="true" UUID="fa6ffd96-d4c2-4b40-83f9-573aa8c2838a" clustered="false" name="tb_finder_links_terms6_pk" physicalName="tb_finder_links_terms6_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB61" populated="false" UUID="9551d1d9-8a05-4442-980a-46cdd17c1ab2" name="tb_finder_links_terms7" objectType="TABLE" physicalName="tb_finder_links_terms7" remarks="" >
+     <folder id="FOLTAB611" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX62" populated="true" UUID="535b38cb-af20-413c-b3f8-6f4dbf803397" clustered="false" name="tb_finder_links_terms7_pk" physicalName="tb_finder_links_terms7_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB63" populated="false" UUID="1b9de107-c217-4932-bf0e-712a2b2dfca5" name="tb_finder_links_terms8" objectType="TABLE" physicalName="tb_finder_links_terms8" remarks="" >
+     <folder id="FOLTAB631" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX64" populated="true" UUID="5d91df0f-b8ce-4cb3-9cfe-c1f95aae5ba5" clustered="false" name="tb_finder_links_terms8_pk" physicalName="tb_finder_links_terms8_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB65" populated="false" UUID="4e0cc48c-39b8-4ba7-a3a2-f9c6a3c80c99" name="tb_finder_links_terms9" objectType="TABLE" physicalName="tb_finder_links_terms9" remarks="" >
+     <folder id="FOLTAB651" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX66" populated="true" UUID="d8c8acf9-e10d-4297-8a92-b9eb7aa8c0ec" clustered="false" name="tb_finder_links_terms9_pk" physicalName="tb_finder_links_terms9_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB67" populated="false" UUID="f7eabeda-79ab-40f9-a255-5b62bf777754" name="tb_finder_links_termsa" objectType="TABLE" physicalName="tb_finder_links_termsa" remarks="" >
+     <folder id="FOLTAB671" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX68" populated="true" UUID="17a847ec-38a4-4cfa-9c56-6420a4811919" clustered="false" name="tb_finder_links_termsa_pk" physicalName="tb_finder_links_termsa_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB69" populated="false" UUID="a44eb222-cb30-4207-b9dc-a9c8ceb50eb8" name="tb_finder_links_termsb" objectType="TABLE" physicalName="tb_finder_links_termsb" remarks="" >
+     <folder id="FOLTAB691" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX70" populated="true" UUID="af43a00f-3e17-4699-a7ec-9aee532b8a9d" clustered="false" name="tb_finder_links_termsb_pk" physicalName="tb_finder_links_termsb_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB71" populated="false" UUID="eadaf82e-45dc-473e-886a-fae4ddd6eced" name="tb_finder_links_termsc" objectType="TABLE" physicalName="tb_finder_links_termsc" remarks="" >
+     <folder id="FOLTAB711" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX72" populated="true" UUID="3510b837-8a0c-4b72-8e94-820ff8672b6a" clustered="false" name="tb_finder_links_termsc_pk" physicalName="tb_finder_links_termsc_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB73" populated="false" UUID="cd639523-5893-4ada-ad9f-03e6e4ed5973" name="tb_finder_links_termsd" objectType="TABLE" physicalName="tb_finder_links_termsd" remarks="" >
+     <folder id="FOLTAB731" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX74" populated="true" UUID="f88db629-bebd-4827-9308-7f822ec15ead" clustered="false" name="tb_finder_links_termsd_pk" physicalName="tb_finder_links_termsd_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB75" populated="false" UUID="1028ca68-6643-4bba-b10c-1329ef996275" name="tb_finder_links_termse" objectType="TABLE" physicalName="tb_finder_links_termse" remarks="" >
+     <folder id="FOLTAB751" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX76" populated="true" UUID="076798ae-c9e8-423b-9a28-946c8d97af74" clustered="false" name="tb_finder_links_termse_pk" physicalName="tb_finder_links_termse_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB77" populated="false" UUID="af6ef21e-ec7e-41f0-b83a-98eb2e3154a7" name="tb_finder_links_termsf" objectType="TABLE" physicalName="tb_finder_links_termsf" remarks="" >
+     <folder id="FOLTAB771" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX78" populated="true" UUID="92021ec6-423c-4297-8328-c2b28c825151" clustered="false" name="tb_finder_links_termsf_pk" physicalName="tb_finder_links_termsf_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB79" populated="false" UUID="088fac98-cb48-4c73-bea8-18829a77d189" name="tb_finder_taxonomy" objectType="TABLE" physicalName="tb_finder_taxonomy" remarks="" >
+     <folder id="FOLTAB791" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX80" populated="true" UUID="0022e48b-a81c-4c1c-825a-6aa518e24a52" clustered="false" name="tb_finder_taxonomy_pk" physicalName="tb_finder_taxonomy_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB81" populated="false" UUID="145769c9-8fd5-4451-9976-0b0267716076" name="tb_finder_taxonomy_map" objectType="TABLE" physicalName="tb_finder_taxonomy_map" remarks="" >
+     <folder id="FOLTAB811" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX82" populated="true" UUID="00fcb371-2a4e-41d0-96e7-f7f88cf3d396" clustered="false" name="tb_finder_taxonomy_map_pk" physicalName="tb_finder_taxonomy_map_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB83" populated="false" UUID="91bdfd3e-8567-4f8d-86a9-7b27b27191fc" name="tb_finder_terms" objectType="TABLE" physicalName="tb_finder_terms" remarks="" >
+     <folder id="FOLTAB831" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX84" populated="true" UUID="93c22f24-575b-4e4f-a3e8-2d34b7eddf4b" clustered="false" name="tb_finder_terms_pk" physicalName="tb_finder_terms_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB85" populated="false" UUID="6443008c-7cba-4ed9-9580-b72c97e3b710" name="tb_finder_terms_common" objectType="TABLE" physicalName="tb_finder_terms_common" remarks="" >
+     <folder id="FOLTAB851" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX86" populated="true" UUID="5ccdcc3a-beb2-471b-91a0-b070a141b42a" clustered="false" name="tb_finder_terms_common_pk" physicalName="tb_finder_terms_common_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB87" populated="false" UUID="651d7024-6662-4e0c-947f-61f9ed5f5f01" name="tb_finder_tokens" objectType="TABLE" physicalName="tb_finder_tokens" remarks="" >
+     <folder id="FOLTAB871" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX88" populated="true" UUID="62de9fb7-c56c-422c-a0a5-75259bf7d9c6" clustered="false" name="tb_finder_tokens_pk" physicalName="tb_finder_tokens_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB89" populated="false" UUID="4f4d7916-9ef9-4700-a207-214ef9cb968c" name="tb_finder_tokens_aggregate" objectType="TABLE" physicalName="tb_finder_tokens_aggregate" remarks="" >
+     <folder id="FOLTAB891" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX90" populated="true" UUID="41d4d7e9-e9f5-4720-8b28-fb7f81126afb" clustered="false" name="tb_finder_tokens_aggregate_pk" physicalName="tb_finder_tokens_aggregate_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB91" populated="false" UUID="0c69888d-a6d3-44a1-baee-16e46d364dbd" name="tb_finder_types" objectType="TABLE" physicalName="tb_finder_types" remarks="" >
+     <folder id="FOLTAB911" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX92" populated="true" UUID="49df24e1-4dfb-4084-853f-21060ce7c858" clustered="false" name="tb_finder_types_pk" physicalName="tb_finder_types_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB93" populated="false" UUID="c52f769d-e9e1-4b17-ade2-08f3abe68f54" name="tb_languages" objectType="TABLE" physicalName="tb_languages" remarks="" >
+     <folder id="FOLTAB931" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX94" populated="true" UUID="8bd61995-eaab-4557-8556-41714acf9056" clustered="false" name="tb_languages_pk" physicalName="tb_languages_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB95" populated="false" UUID="67fdd309-07e5-4615-841d-45c89d0053eb" name="tb_menu" objectType="TABLE" physicalName="tb_menu" remarks="" >
+     <folder id="FOLTAB951" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX96" populated="true" UUID="57efd5c6-27f5-4c2d-82d6-5f89ad292d86" clustered="false" name="tb_menu_pk" physicalName="tb_menu_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB97" populated="false" UUID="01b801c4-e4ef-488f-9b73-51ffe6e40794" name="tb_menu_types" objectType="TABLE" physicalName="tb_menu_types" remarks="" >
+     <folder id="FOLTAB971" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX98" populated="true" UUID="079be507-c4ac-41e5-b949-bf850a5136de" clustered="false" name="tb_menu_types_pk" physicalName="tb_menu_types_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB99" populated="false" UUID="735e9540-31d3-4801-97e0-8d9b84273aa9" name="tb_messages" objectType="TABLE" physicalName="tb_messages" remarks="" >
+     <folder id="FOLTAB991" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX100" populated="true" UUID="fbc92f01-8eeb-4e5a-8883-3f37af6d144c" clustered="false" name="tb_messages_pk" physicalName="tb_messages_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB101" populated="false" UUID="330afb14-588f-4e5d-925d-0b0730177fea" name="tb_messages_cfg" objectType="TABLE" physicalName="tb_messages_cfg" remarks="" >
+     <folder id="FOLTAB1011" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX102" populated="true" UUID="b7cb5cad-82d8-4e81-b28a-5cece4aa6674" clustered="false" name="tb_messages_cfg_pk" physicalName="tb_messages_cfg_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB103" populated="false" UUID="92700f0f-58d5-4fb7-8553-3f51307cee50" name="tb_modules" objectType="TABLE" physicalName="tb_modules" remarks="" >
+     <folder id="FOLTAB1031" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX104" populated="true" UUID="d1623900-13cd-4166-8662-8db5a33925fa" clustered="false" name="tb_modules_pk" physicalName="tb_modules_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB105" populated="false" UUID="524e6118-f0ea-4408-b2ca-abbc8fed6773" name="tb_modules_menu" objectType="TABLE" physicalName="tb_modules_menu" remarks="" >
+     <folder id="FOLTAB1051" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX106" populated="true" UUID="7b2b91a3-bc8b-4029-9bc7-0267cd9e0745" clustered="false" name="tb_modules_menu_pk" physicalName="tb_modules_menu_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB107" populated="false" UUID="b0241671-bb60-48ad-8dd2-d413b1c99858" name="tb_newsfeeds" objectType="TABLE" physicalName="tb_newsfeeds" remarks="" >
+     <folder id="FOLTAB1071" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX108" populated="true" UUID="b95eeaed-69ac-439d-9e7c-0ab9dc3f8dbf" clustered="false" name="tb_newsfeeds_pk" physicalName="tb_newsfeeds_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB109" populated="false" UUID="85403a2e-ad6c-40f0-a6b5-6d0373841ae5" name="tb_overrider" objectType="TABLE" physicalName="tb_overrider" remarks="" >
+     <folder id="FOLTAB1091" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX110" populated="true" UUID="971d7e1f-6e47-4fb5-ab74-c4d81e6cfada" clustered="false" name="tb_overrider_pk" physicalName="tb_overrider_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB111" populated="false" UUID="a16976ed-31d8-49c3-a55a-f0912947a518" name="tb_redirect_links" objectType="TABLE" physicalName="tb_redirect_links" remarks="" >
+     <folder id="FOLTAB1111" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX112" populated="true" UUID="5d63b59f-bd21-4b9d-97cb-8fc25290cfa5" clustered="false" name="tb_redirect_links_pk" physicalName="tb_redirect_links_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB113" populated="false" UUID="88684c4f-4740-41c2-bae1-6ea063f796bf" name="tb_schemas" objectType="TABLE" physicalName="tb_schemas" remarks="" >
+     <folder id="FOLTAB1131" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX114" populated="true" UUID="a6fae4ae-1ae9-46d1-b28c-fda46103c9a0" clustered="false" name="tb_schemas_pk" physicalName="tb_schemas_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB115" populated="false" UUID="14e81d7b-6f95-4f73-888e-f739efe671d7" name="tb_session" objectType="TABLE" physicalName="tb_session" remarks="" >
+     <folder id="FOLTAB1151" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX116" populated="true" UUID="82527059-51b8-4259-ab28-adc16f17ea5e" clustered="false" name="tb_session_pk" physicalName="tb_session_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB117" populated="false" UUID="e3d24a9f-6c67-4180-aa0b-766a5eeb5f7c" name="tb_template_styles" objectType="TABLE" physicalName="tb_template_styles" remarks="" >
+     <folder id="FOLTAB1171" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX118" populated="true" UUID="3ead1653-d805-410b-a8e5-1a342a9a8067" clustered="false" name="tb_template_styles_pk" physicalName="tb_template_styles_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB119" populated="false" UUID="29b70df9-289b-4fdc-a214-c8aff485e34f" name="tb_update_categories" objectType="TABLE" physicalName="tb_update_categories" remarks="" >
+     <folder id="FOLTAB1191" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX120" populated="true" UUID="e149a9ef-c2f9-4d49-90d2-b7691b689465" clustered="false" name="tb_update_categories_pk" physicalName="tb_update_categories_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB121" populated="false" UUID="d7895447-e31e-4419-b3d9-afb9c2db351b" name="tb_update_sites" objectType="TABLE" physicalName="tb_update_sites" remarks="" >
+     <folder id="FOLTAB1211" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX122" populated="true" UUID="a8fa73d8-ec07-4523-b507-dcc6a3750854" clustered="false" name="tb_update_sites_pk" physicalName="tb_update_sites_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB123" populated="false" UUID="a1e6957c-318a-43d4-9008-61d38981881e" name="tb_update_sites_extensions" objectType="TABLE" physicalName="tb_update_sites_extensions" remarks="" >
+     <folder id="FOLTAB1231" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX124" populated="true" UUID="d5bbdf70-fe4c-495a-bbd9-b28760dd7478" clustered="false" name="tb_update_sites_extensions_pk" physicalName="tb_update_sites_extensions_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB125" populated="false" UUID="bc3e912e-0688-4b83-be1a-4e20cd6838b6" name="tb_updates" objectType="TABLE" physicalName="tb_updates" remarks="" >
+     <folder id="FOLTAB1251" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX126" populated="true" UUID="ba3e4ffe-b2b5-4e0b-ad2d-d906263b286f" clustered="false" name="tb_updates_pk" physicalName="tb_updates_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB127" populated="false" UUID="73eb4011-0c0c-4f9a-b9a4-e379ccd4f96c" name="tb_user_notes" objectType="TABLE" physicalName="tb_user_notes" remarks="" >
+     <folder id="FOLTAB1271" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX128" populated="true" UUID="2f631779-1639-452c-902e-67ff30d4c96b" clustered="false" name="tb_user_notes_pk" physicalName="tb_user_notes_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB129" populated="false" UUID="ddef72c9-2118-4845-9555-9e2c5d8fee0c" name="tb_user_profiles" objectType="TABLE" physicalName="tb_user_profiles" remarks="" >
+     <folder id="FOLTAB1291" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX130" populated="true" UUID="9eca5bf5-8449-433a-8bfd-0b6d0c3a0061" clustered="false" name="tb_user_profiles_pk" physicalName="tb_user_profiles_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB131" populated="false" UUID="dd47d72e-a117-4355-bc3a-c9908b86a580" name="tb_user_usergroup_map" objectType="TABLE" physicalName="tb_user_usergroup_map" remarks="" >
+     <folder id="FOLTAB1311" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX132" populated="true" UUID="c3e1dbd0-04bb-45f8-9844-8a0d9f174bb6" clustered="false" name="tb_user_usergroup_map_pk" physicalName="tb_user_usergroup_map_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB133" populated="false" UUID="43017e00-55e5-4b2c-bf05-168095797dea" name="tb_usergroups" objectType="TABLE" physicalName="tb_usergroups" remarks="" >
+     <folder id="FOLTAB1331" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX134" populated="true" UUID="91cc3e14-c020-4173-baeb-75ba4305d33d" clustered="false" name="tb_usergroups_pk" physicalName="tb_usergroups_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB135" populated="false" UUID="5703a54d-50e4-4143-ae7c-e7a38cc7094c" name="tb_users" objectType="TABLE" physicalName="tb_users" remarks="" >
+     <folder id="FOLTAB1351" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX136" populated="true" UUID="52ceea50-6777-486f-ac80-754478b57ccb" clustered="false" name="tb_users_pk" physicalName="tb_users_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB137" populated="false" UUID="7b00dde0-8d69-4f34-a2f9-9dc2a96e5f85" name="tb_viewlevels" objectType="TABLE" physicalName="tb_viewlevels" remarks="" >
+     <folder id="FOLTAB1371" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX138" populated="true" UUID="92e36a31-32fb-455b-bbdf-345f30cac9f0" clustered="false" name="tb_viewlevels_pk" physicalName="tb_viewlevels_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+    <table id="TAB139" populated="false" UUID="866657b8-60ff-4c26-a360-918ccaeb721b" name="tb_weblinks" objectType="TABLE" physicalName="tb_weblinks" remarks="" >
+     <folder id="FOLTAB1391" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX140" populated="true" UUID="502b2363-9ff7-4350-8a8e-34f70c47dde9" clustered="false" name="tb_weblinks_pk" physicalName="tb_weblinks_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+   </catalog>
+   <catalog id="CAT141" populated="false" UUID="509f5ae6-bff4-4419-9a49-0909c03ac124" name="cdcol" nativeTerm="database" physicalName="cdcol" >
+   </catalog>
+   <catalog id="CAT142" populated="false" UUID="c8b18ca1-8fab-4292-a2c0-b91dd0343780" name="mysql" nativeTerm="database" physicalName="mysql" >
+   </catalog>
+   <catalog id="CAT143" populated="false" UUID="bc4adb45-9ffe-4dff-8326-089498c438d0" name="performance_schema" nativeTerm="database" physicalName="performance_schema" >
+   </catalog>
+   <catalog id="CAT144" populated="false" UUID="98779664-8677-4d3b-b646-02d60ee0265d" name="phpmyadmin" nativeTerm="database" physicalName="phpmyadmin" >
+   </catalog>
+   <catalog id="CAT145" populated="true" UUID="2542631a-600c-43a6-bac6-1adcf1a52669" name="retensul" nativeTerm="database" physicalName="retensul" >
+    <table id="TAB146" populated="true" UUID="74a0a4b9-bda1-46d7-8102-725d7ee446c3" name="tb_informativo" objectType="TABLE" physicalName="tb_informativo" remarks="" >
+     <folder id="FOLTAB1461" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL147" populated="true" UUID="a36f20a0-7865-46aa-bc93-ab65f4ef84ca" autoIncrement="true" name="tb_informativo_id" nullable="0" physicalName="tb_informativo_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL148" populated="true" UUID="b7d079a2-56b8-49bc-b46c-baec05ff734d" autoIncrement="false" name="tb_orcamento_id" nullable="1" physicalName="tb_orcamento_id" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL149" populated="true" UUID="b8f2e654-7813-40ba-918e-28b7eea97a05" autoIncrement="false" name="tb_pedido_id" nullable="1" physicalName="tb_pedido_id" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL150" populated="true" UUID="30634542-9a45-4202-ac67-caf8e7299e78" autoIncrement="false" name="tb_informativo_tipo" nullable="0" physicalName="tb_informativo_tipo" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL151" populated="true" UUID="00508b77-c545-4917-a7cc-833431984563" autoIncrement="false" name="tb_informativo_descricao" nullable="0" physicalName="tb_informativo_descricao" precision="150" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL152" populated="true" UUID="1d4a6b71-02e3-4f42-ba16-5fe0d4a97f05" autoIncrement="false" name="tb_informativo_data" nullable="0" physicalName="tb_informativo_data" precision="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DATE" type="91" />
+      <column id="COL153" populated="true" UUID="fd70f691-5e8f-4bc1-b34e-ec0c6fd2c98c" autoIncrement="false" name="tb_informativo_origem" nullable="0" physicalName="tb_informativo_origem" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      </folder>
+      <folder id="FOLTAB1463" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB1462" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB1464" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX154" populated="true" UUID="73cf268f-1b41-454f-b9a3-cf2bc9ac7327" clustered="false" name="tb_informativo_PK" physicalName="tb_informativo_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC155" populated="true" UUID="ae08ea1e-10a1-4eb2-822b-62f7e8df34ac" ascendingOrDescending="UNSPECIFIED" column-ref="COL147" name="tb_informativo_id" physicalName="tb_informativo_id" />
+      </index>
+      <index id="IDX156" populated="true" UUID="8c884054-14e4-4645-92d6-412640f5a75e" clustered="false" index-type="BTREE" name="tb_orcamento_tb_informativo_fk" physicalName="tb_orcamento_tb_informativo_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC157" populated="true" UUID="cfcfa877-3f64-45bd-9dac-e5a51bf96055" ascendingOrDescending="ASCENDING" column-ref="COL148" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+      </index>
+      <index id="IDX158" populated="true" UUID="e525612f-e142-4c72-a016-f8c4c0d848ff" clustered="false" index-type="BTREE" name="tb_pedido_tb_informativo_fk" physicalName="tb_pedido_tb_informativo_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC159" populated="true" UUID="d90b3df5-e676-44a4-b2bb-e67f8a92a83a" ascendingOrDescending="ASCENDING" column-ref="COL149" name="tb_pedido_id" physicalName="tb_pedido_id" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB160" populated="true" UUID="6591c044-c094-4093-b353-f6cdfd0dfa93" name="tb_orcamento" objectType="TABLE" physicalName="tb_orcamento" remarks="" >
+     <folder id="FOLTAB1601" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL161" populated="true" UUID="d404191f-eab5-43ea-a2a5-0776af4b24e0" autoIncrement="true" name="tb_orcamento_id" nullable="0" physicalName="tb_orcamento_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL162" populated="true" UUID="d6718fac-4759-4140-95f0-bdb420ac4f5c" autoIncrement="false" name="tb_orcamento_id_cliente" nullable="0" physicalName="tb_orcamento_id_cliente" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL163" populated="true" UUID="5694aec3-afd7-4bff-b9a8-1d57cda906f9" autoIncrement="false" name="tb_orcamento_contato" nullable="0" physicalName="tb_orcamento_contato" precision="50" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL164" populated="true" UUID="936d34a5-5420-48a4-b3a8-d59ee5f6385d" autoIncrement="false" name="tb_orcamento_telefone" nullable="0" physicalName="tb_orcamento_telefone" precision="12" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL165" populated="true" UUID="d3e3fffb-a5a8-4f5f-ab6a-2cc59e1d34f1" autoIncrement="false" name="tb_orcamento_email" nullable="0" physicalName="tb_orcamento_email" precision="200" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL166" populated="true" UUID="b0b8f5b5-512a-4280-ba10-4d36bbd95217" autoIncrement="false" name="tb_orcamento_data" nullable="0" physicalName="tb_orcamento_data" precision="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DATE" type="91" />
+      <column id="COL167" populated="true" UUID="6289c3b9-40c7-43d8-b971-28e1517bc481" autoIncrement="false" name="tb_orcamento_id_vendedor" nullable="0" physicalName="tb_orcamento_id_vendedor" precision="2" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL168" populated="true" UUID="b3aefb4c-7c1f-47d6-920a-65fb7baab855" autoIncrement="false" name="tb_orcamento_id_plano" nullable="0" physicalName="tb_orcamento_id_plano" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL169" populated="true" UUID="c07d3ef1-3af3-46da-9e52-1010d3ead807" autoIncrement="false" name="tb_orcamento_obs" nullable="0" physicalName="tb_orcamento_obs" precision="200" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL170" populated="true" UUID="3819dd3d-7817-4486-9094-0ff591736c6b" autoIncrement="false" name="tb_orcamento_nivel" nullable="0" physicalName="tb_orcamento_nivel" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL171" populated="true" UUID="250b954a-23a4-4dc6-84aa-814dbdc83589" autoIncrement="false" name="tb_orcamento_total_orcamento" nullable="0" physicalName="tb_orcamento_total_orcamento" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL172" populated="true" UUID="61c1b4bf-d9f2-4296-b448-746ae8f6af8a" autoIncrement="false" name="tb_orcamento_id_principal_ou_resposta" nullable="1" physicalName="tb_orcamento_id_principal_ou_resposta" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL173" populated="true" UUID="47db4d75-225d-4b0a-b45c-692245671068" autoIncrement="false" name="tb_orcamento_data_resposta_cliente" nullable="0" physicalName="tb_orcamento_data_resposta_cliente" precision="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DATE" type="91" />
+      </folder>
+      <folder id="FOLTAB1603" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB1602" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB1604" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX174" populated="true" UUID="12dafc6c-3c4e-449b-9cb6-aafd12a79f88" clustered="false" name="tb_orcamento_PK" physicalName="tb_orcamento_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC175" populated="true" UUID="bc493698-923a-400f-a867-c98acc31d713" ascendingOrDescending="UNSPECIFIED" column-ref="COL161" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+      </index>
+      <index id="IDX176" populated="true" UUID="b873dc0c-f04d-4f9a-81e1-4c4c698579ac" clustered="false" index-type="BTREE" name="tb_orcamento_tb_orcamento_fk" physicalName="tb_orcamento_tb_orcamento_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC177" populated="true" UUID="b7b97734-a426-4247-80e1-f59466614088" ascendingOrDescending="ASCENDING" column-ref="COL172" name="tb_orcamento_id_principal_ou_resposta" physicalName="tb_orcamento_id_principal_ou_resposta" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB178" populated="true" UUID="899e355e-b307-46bd-8c7b-75f46cccc4a4" name="tb_orcamento_itens" objectType="TABLE" physicalName="tb_orcamento_itens" remarks="" >
+     <folder id="FOLTAB1781" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL179" populated="true" UUID="a47710b2-d64b-46fe-a172-fd3d26541ffb" autoIncrement="true" name="tb_orcamento_itens_id" nullable="0" physicalName="tb_orcamento_itens_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL180" populated="true" UUID="e719fb13-9610-4a42-8cf2-0f527f454663" autoIncrement="false" name="tb_orcamento_id" nullable="0" physicalName="tb_orcamento_id" precision="10" primaryKeySeq="1" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL181" populated="true" UUID="00c76905-be0f-40e9-a332-6b350be8e318" autoIncrement="false" name="tb_orcamento_itens_seq" nullable="0" physicalName="tb_orcamento_itens_seq" precision="10" primaryKeySeq="2" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL182" populated="true" UUID="a66c2856-4e49-48cd-b0ab-eff1dd6395ce" autoIncrement="false" name="tb_orcamento_itens_id_produto" nullable="0" physicalName="tb_orcamento_itens_id_produto" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL183" populated="true" UUID="ceee1667-3106-4768-8a7a-24ffe3b847bb" autoIncrement="false" name="tb_orcamento_itens_referencia_produto" nullable="0" physicalName="tb_orcamento_itens_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL184" populated="true" UUID="a17fa008-af4b-4664-afae-a5f7e1016692" autoIncrement="false" name="tb_orcamento_itens_descricao_produto" nullable="0" physicalName="tb_orcamento_itens_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL185" populated="true" UUID="0fb6e1cc-3b86-4a5b-87e4-2cca1d363be9" autoIncrement="false" name="tb_orcamento_itens_marca_produto" nullable="0" physicalName="tb_orcamento_itens_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL186" populated="true" UUID="36f12240-6307-4296-9c9c-64bac48c7975" autoIncrement="false" name="tb_orcamento_itens_qt_produto" nullable="0" physicalName="tb_orcamento_itens_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL187" populated="true" UUID="e71d72fb-46f4-4221-a9a1-675e2784ad92" autoIncrement="false" name="tb_orcamento_itens_preco_lista" nullable="0" physicalName="tb_orcamento_itens_preco_lista" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL188" populated="true" UUID="955ccf5d-12e1-4c77-a6fc-a4a120e7fff7" autoIncrement="false" name="tb_orcamento_itens_percentual_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL189" populated="true" UUID="d211a892-a44f-4829-880d-864ed0762225" autoIncrement="false" name="tb_orcamento_itens_valor_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL190" populated="true" UUID="a371a2c0-9c5f-423d-9e3e-f490c1b7aa84" autoIncrement="false" name="tb_orcamento_itens_valor_unit_produto" nullable="0" physicalName="tb_orcamento_itens_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL191" populated="true" UUID="6d386df1-7529-4ee8-a3b1-ba8d883157c8" autoIncrement="false" name="tb_orcamento_itens_valor_total_produto" nullable="0" physicalName="tb_orcamento_itens_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      </folder>
+      <folder id="FOLTAB1783" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB1782" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB1784" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX192" populated="true" UUID="6fa20dfe-45c3-4775-bc59-385f3b90bb1c" clustered="false" name="tb_orcamento_itens_PK" physicalName="tb_orcamento_itens_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC193" populated="true" UUID="5f255bcf-9f4d-4c81-9382-a2d0183985cd" ascendingOrDescending="UNSPECIFIED" column-ref="COL179" name="tb_orcamento_itens_id" physicalName="tb_orcamento_itens_id" />
+       <index-column id="IDC194" populated="true" UUID="c4536c94-92a5-43cd-a02f-947ea5812cab" ascendingOrDescending="UNSPECIFIED" column-ref="COL180" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+       <index-column id="IDC195" populated="true" UUID="1de1e34c-512e-4302-9281-1eeca56c07a6" ascendingOrDescending="UNSPECIFIED" column-ref="COL181" name="tb_orcamento_itens_seq" physicalName="tb_orcamento_itens_seq" />
+      </index>
+      <index id="IDX196" populated="true" UUID="3f8660e3-a983-4b85-bf1f-4edd8092a8bc" clustered="false" index-type="BTREE" name="tb_orcamento_tb_orcamento_itens_fk" physicalName="tb_orcamento_tb_orcamento_itens_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC197" populated="true" UUID="5ef56ecf-7621-4f98-80b7-46769fb921d8" ascendingOrDescending="ASCENDING" column-ref="COL180" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB198" populated="true" UUID="f90edb32-2429-43e5-b433-5746dd8704ae" name="tb_orcamento_itens_resposta" objectType="TABLE" physicalName="tb_orcamento_itens_resposta" remarks="" >
+     <folder id="FOLTAB1981" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL199" populated="true" UUID="039a9ead-75fa-49fb-baa9-e99f20fbc9c7" autoIncrement="true" name="tb_orcamento_itens_resposta_id" nullable="0" physicalName="tb_orcamento_itens_resposta_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL200" populated="true" UUID="ed8ebf1c-5805-4c06-9706-9a55f7b2db91" autoIncrement="false" name="tb_orcamento_itens_resposta_id_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_id_produto" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL201" populated="true" UUID="7baeedeb-3886-4cb4-9517-5cf1612c3ab6" autoIncrement="false" name="tb_orcamento_itens_resposta_referencia_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL202" populated="true" UUID="15958555-a27f-4f2b-baf9-018c56c7e3ec" autoIncrement="false" name="tb_orcamento_itens_resposta_descricao_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL203" populated="true" UUID="5bdbc8c4-6623-43b1-91c4-fbcd21fca853" autoIncrement="false" name="tb_orcamento_itens_resposta_marca_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL204" populated="true" UUID="d431fc93-5bcb-4125-b386-6dd08150eb93" autoIncrement="false" name="tb_orcamento_itens_resposta_qt_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL205" populated="true" UUID="2e8ecd39-3592-435f-bc88-383106e01b5a" autoIncrement="false" name="tb_orcamento_itens_resposta_preco_lista" nullable="0" physicalName="tb_orcamento_itens_resposta_preco_lista" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL206" populated="true" UUID="5b19b8ea-27d3-41f8-aad4-e9dc5924b383" autoIncrement="false" name="tb_orcamento_itens_resposta_percentual_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL207" populated="true" UUID="abee706b-003d-4c36-addb-0add33fc8b5e" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL208" populated="true" UUID="04fd9ede-077b-4bd2-8f09-c29be10e7e0f" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_unit_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL209" populated="true" UUID="cca1886a-751d-4ac1-9ed0-aaac5215b94f" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_total_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL210" populated="true" UUID="795eead3-b8ad-408b-b1f0-c6f353f70e30" autoIncrement="false" name="tb_orcamento_itens_resposta_prazo_entrega" nullable="0" physicalName="tb_orcamento_itens_resposta_prazo_entrega" precision="50" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL211" populated="true" UUID="377be983-8821-4388-9673-0a09c88ac283" autoIncrement="false" name="tb_orcamento_itens_id_principal" nullable="0" physicalName="tb_orcamento_itens_id_principal" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL212" populated="true" UUID="bac1095f-88e1-42ee-a0a6-dc8acc1b6274" autoIncrement="false" name="tb_orcamento_id_principal" nullable="0" physicalName="tb_orcamento_id_principal" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL213" populated="true" UUID="cd178456-373f-4c84-9c09-21ca0d06827d" autoIncrement="false" name="tb_orcamento_itens_seq_principal" nullable="0" physicalName="tb_orcamento_itens_seq_principal" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL214" populated="true" UUID="64fb69e5-e5a2-44b1-9183-4d0b192644a4" autoIncrement="false" name="tb_orcamento_itens_resposta_status" nullable="0" physicalName="tb_orcamento_itens_resposta_status" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL215" populated="true" UUID="f9b8bddd-4e4b-4b60-815c-7ada6b52d027" autoIncrement="false" name="tb_orcamento_itens_resposta_id_fornecedor" nullable="0" physicalName="tb_orcamento_itens_resposta_id_fornecedor" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      </folder>
+      <folder id="FOLTAB1983" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB1982" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB1984" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX216" populated="true" UUID="ffd8ef66-851b-4883-9497-acc8ec90acdd" clustered="false" name="tb_orcamento_itens_resposta_PK" physicalName="tb_orcamento_itens_resposta_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC217" populated="true" UUID="35b0bbf1-1eb6-4a81-8c2b-56d010be0a3c" ascendingOrDescending="UNSPECIFIED" column-ref="COL199" name="tb_orcamento_itens_resposta_id" physicalName="tb_orcamento_itens_resposta_id" />
+      </index>
+      <index id="IDX218" populated="true" UUID="53bbd256-bd01-46bd-b495-9bf756976e31" clustered="false" index-type="BTREE" name="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" physicalName="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC219" populated="true" UUID="21263a5b-0004-48be-ba79-334f14e72fd7" ascendingOrDescending="ASCENDING" column-ref="COL211" name="tb_orcamento_itens_id_principal" physicalName="tb_orcamento_itens_id_principal" />
+       <index-column id="IDC220" populated="true" UUID="8e213d36-a3e9-4322-96c3-e942c3945091" ascendingOrDescending="ASCENDING" column-ref="COL212" name="tb_orcamento_id_principal" physicalName="tb_orcamento_id_principal" />
+       <index-column id="IDC221" populated="true" UUID="ab899dc3-2361-4bb7-9489-d1cf6700666a" ascendingOrDescending="ASCENDING" column-ref="COL213" name="tb_orcamento_itens_seq_principal" physicalName="tb_orcamento_itens_seq_principal" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB222" populated="true" UUID="1a36dcf5-6dcf-40ad-9965-e16afe0346cf" name="tb_pedido" objectType="TABLE" physicalName="tb_pedido" remarks="" >
+     <folder id="FOLTAB2221" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL223" populated="true" UUID="be46c1d9-131f-4277-a5c7-ff2191bbce7d" autoIncrement="true" name="tb_pedido_id" nullable="0" physicalName="tb_pedido_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL224" populated="true" UUID="20031f16-7ea4-4169-a16f-84de255e2e60" autoIncrement="false" name="tb_pedido_id_cliente" nullable="0" physicalName="tb_pedido_id_cliente" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL225" populated="true" UUID="998d8be4-1b01-4f0f-b7e6-184e8ffa73b5" autoIncrement="false" name="tb_pedido_contato" nullable="0" physicalName="tb_pedido_contato" precision="50" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL226" populated="true" UUID="f151e046-ffa6-456c-b5e5-5528b7817b53" autoIncrement="false" name="tb_pedido_telefone" nullable="0" physicalName="tb_pedido_telefone" precision="12" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL227" populated="true" UUID="5cebf301-d837-463b-839b-eb1ea9dab67c" autoIncrement="false" name="tb_pedido_email" nullable="1" physicalName="tb_pedido_email" precision="200" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL228" populated="true" UUID="0eb2c609-5ae3-405f-974f-a740be517786" autoIncrement="false" name="tb_pedido_data" nullable="0" physicalName="tb_pedido_data" precision="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DATE" type="91" />
+      <column id="COL229" populated="true" UUID="8ef66254-006d-4b2b-a127-8e013a19a84e" autoIncrement="false" name="tb_pedido_id_vendedor" nullable="0" physicalName="tb_pedido_id_vendedor" precision="2" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL230" populated="true" UUID="59b72d87-2b51-4ad5-85df-4d5f5ac6fd87" autoIncrement="false" name="tb_pedido_id_plano" nullable="0" physicalName="tb_pedido_id_plano" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL231" populated="true" UUID="6842c753-388d-4090-b916-3c31f39d0fed" autoIncrement="false" name="tb_pedido_obs" nullable="0" physicalName="tb_pedido_obs" precision="200" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL232" populated="true" UUID="6c5630c9-a229-4a5e-ac57-f3e4b9dd0713" autoIncrement="false" name="tb_pedido_valor_total_pedido" nullable="0" physicalName="tb_pedido_valor_total_pedido" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL233" populated="true" UUID="63ed7eb1-0bd4-4015-a819-b7393bbe972b" autoIncrement="false" name="tb_orcamento_ID" nullable="1" physicalName="tb_orcamento_ID" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL234" populated="true" UUID="9bcb69f2-5ff6-483d-b48d-be2d81b63473" autoIncrement="false" name="tb_pedido_status" nullable="0" physicalName="tb_pedido_status" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      </folder>
+      <folder id="FOLTAB2223" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB2222" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB2224" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX235" populated="true" UUID="da25ef78-05b7-4f60-8f34-451293af946e" clustered="false" name="tb_pedido_PK" physicalName="tb_pedido_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC236" populated="true" UUID="4d1ddf5e-cb13-4311-aa3c-a0b4589ad028" ascendingOrDescending="UNSPECIFIED" column-ref="COL223" name="tb_pedido_id" physicalName="tb_pedido_id" />
+      </index>
+      <index id="IDX237" populated="true" UUID="ab41f702-de59-4f0e-bdc3-829c0506822c" clustered="false" index-type="BTREE" name="tb_orcamento_tb_pedido_fk" physicalName="tb_orcamento_tb_pedido_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC238" populated="true" UUID="110d6d6d-14ed-4833-a5f8-e5e33b8d3a2e" ascendingOrDescending="ASCENDING" column-ref="COL233" name="tb_orcamento_ID" physicalName="tb_orcamento_ID" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB239" populated="true" UUID="d6d55dff-4366-4a4f-9978-95ee24b647cf" name="tb_pedido_itens" objectType="TABLE" physicalName="tb_pedido_itens" remarks="" >
+     <folder id="FOLTAB2391" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL240" populated="true" UUID="4b6c78d1-14d4-4723-84e3-c64979a55a09" autoIncrement="true" name="tb_pedido_itens_id" nullable="0" physicalName="tb_pedido_itens_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL241" populated="true" UUID="d045b9ec-0fc3-40bd-af34-97c46ddcb896" autoIncrement="false" name="tb_pedido_id" nullable="0" physicalName="tb_pedido_id" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL242" populated="true" UUID="7b0a5ef4-30df-47c8-8555-c12b8d2f76de" autoIncrement="false" name="tb_pedido_itens_seq" nullable="0" physicalName="tb_pedido_itens_seq" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL243" populated="true" UUID="c8e7d801-ed46-4fc5-b06d-f7c90e179706" autoIncrement="false" name="tb_pedido_itens_id_produto" nullable="0" physicalName="tb_pedido_itens_id_produto" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL244" populated="true" UUID="b6f5d925-de80-42d7-9f16-0f57f49a6197" autoIncrement="false" name="tb_pedido_itens_referencia_produto" nullable="0" physicalName="tb_pedido_itens_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL245" populated="true" UUID="e58b09c6-a776-40d0-9ae3-e81589b61578" autoIncrement="false" name="tb_pedido_itens_descricao_produto" nullable="0" physicalName="tb_pedido_itens_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL246" populated="true" UUID="3f16249a-9d80-4a4f-9850-72cb3be04ba1" autoIncrement="false" name="tb_pedido_itens_marca_produto" nullable="0" physicalName="tb_pedido_itens_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" sourceDataTypeName="VARCHAR" type="12" />
+      <column id="COL247" populated="true" UUID="fdc1691e-38e5-4a68-b6ef-b7f4531c4a72" autoIncrement="false" name="tb_pedido_itens_qt_produto" nullable="0" physicalName="tb_pedido_itens_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL248" populated="true" UUID="e21c1667-016c-4f54-b60b-cbf789c62abb" autoIncrement="false" name="tb_pedido_itens_preco_lista_produto" nullable="0" physicalName="tb_pedido_itens_preco_lista_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL249" populated="true" UUID="775b49ea-7c61-4376-9d72-b8e5e8f1e83f" autoIncrement="false" name="tb_pedido_itens_percentual_desconto_produto" nullable="0" physicalName="tb_pedido_itens_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL250" populated="true" UUID="4768aa73-9efb-41f4-bcf4-8086f2324fb5" autoIncrement="false" name="tb_pedido_itens_valor_desconto_produto" nullable="0" physicalName="tb_pedido_itens_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL251" populated="true" UUID="c5630578-2e2f-43cf-a966-15ee7b2bd3f1" autoIncrement="false" name="tb_pedido_itens_valor_unit_produto" nullable="0" physicalName="tb_pedido_itens_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL252" populated="true" UUID="bb0740d4-4378-4a10-a07e-3ab29e4a4946" autoIncrement="false" name="tb_pedido_itens_valor_total_produto" nullable="0" physicalName="tb_pedido_itens_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DOUBLE" type="8" />
+      <column id="COL253" populated="true" UUID="86750ffb-1976-48a3-bdc9-38078c98429c" autoIncrement="false" name="tb_pedido_itens_status_pedido" nullable="0" physicalName="tb_pedido_itens_status_pedido" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL254" populated="true" UUID="ade7eedd-77c8-4282-ab7b-13c27fa0713a" autoIncrement="false" name="tb_pedido_itens_status_estoque" nullable="0" physicalName="tb_pedido_itens_status_estoque" precision="1" referenceCount="1" remarks="" scale="0" sourceDataTypeName="CHAR" type="1" />
+      <column id="COL255" populated="true" UUID="5e61711e-e7a0-42d3-91fe-b5095309d1a1" autoIncrement="false" name="tb_pedido_itens_previsao_entrega" nullable="0" physicalName="tb_pedido_itens_previsao_entrega" precision="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="DATE" type="91" />
+      </folder>
+      <folder id="FOLTAB2393" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB2392" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB2394" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX256" populated="true" UUID="37841d1a-4740-4c35-94ad-a8257db80b72" clustered="false" name="tb_pedido_itens_PK" physicalName="tb_pedido_itens_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC257" populated="true" UUID="025e3260-0f50-4981-b3f0-d54400eb55f7" ascendingOrDescending="UNSPECIFIED" column-ref="COL240" name="tb_pedido_itens_id" physicalName="tb_pedido_itens_id" />
+      </index>
+      <index id="IDX258" populated="true" UUID="19d9fcf4-3f52-47f2-b445-7a767e98359b" clustered="false" index-type="BTREE" name="tb_pedido_tb_pedido_itens_fk" physicalName="tb_pedido_tb_pedido_itens_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC259" populated="true" UUID="c8baea2b-7f12-4d6c-aa5d-17e04f760d4d" ascendingOrDescending="ASCENDING" column-ref="COL241" name="tb_pedido_id" physicalName="tb_pedido_id" />
+      </index>
+     </folder>
+    </table>
+    <table id="TAB260" populated="true" UUID="904a51df-1322-4e9a-8d2d-89c25b041100" name="tb_pedido_itens_fornecedores" objectType="TABLE" physicalName="tb_pedido_itens_fornecedores" remarks="" >
+     <folder id="FOLTAB2601" populated="true" name="Columns" physicalName="Columns" type="1">
+      <column id="COL261" populated="true" UUID="e05be9d5-8668-46ab-8034-12cbffb0d2fb" autoIncrement="true" name="tb_pedido_itens_fornecedores_id" nullable="0" physicalName="tb_pedido_itens_fornecedores_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL262" populated="true" UUID="cce64d59-643b-4440-ba18-4494e1ebbb3f" autoIncrement="false" name="tb_pedido_itens_id" nullable="0" physicalName="tb_pedido_itens_id" precision="10" referenceCount="2" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      <column id="COL263" populated="true" UUID="df07df20-b982-4cbe-96f8-bed3f9c15c36" autoIncrement="false" name="tb_pedido_itens_fornecedores_id_fornecedor" nullable="0" physicalName="tb_pedido_itens_fornecedores_id_fornecedor" precision="10" referenceCount="1" remarks="" scale="0" sourceDataTypeName="INT" type="4" />
+      </folder>
+      <folder id="FOLTAB2603" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+      </folder>
+      <folder id="FOLTAB2602" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+      </folder>
+      <folder id="FOLTAB2604" populated="true" name="Indices" physicalName="Indices" type="4">
+      <index id="IDX264" populated="true" UUID="634008ed-8aa8-46d4-9039-42cfbeb7c101" clustered="false" name="tb_pedido_itens_fornecedores_PK" physicalName="tb_pedido_itens_fornecedores_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+       <index-column id="IDC265" populated="true" UUID="2819b016-7801-4e2c-9056-2eceacdd9c94" ascendingOrDescending="UNSPECIFIED" column-ref="COL261" name="tb_pedido_itens_fornecedores_id" physicalName="tb_pedido_itens_fornecedores_id" />
+      </index>
+      <index id="IDX266" populated="true" UUID="0ac41186-6234-4841-b60c-710af91b17b8" clustered="false" index-type="BTREE" name="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" physicalName="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+       <index-column id="IDC267" populated="true" UUID="55defeb8-1f04-4abf-adba-4c151ccdfe6c" ascendingOrDescending="ASCENDING" column-ref="COL262" name="tb_pedido_itens_id" physicalName="tb_pedido_itens_id" />
+      </index>
+     </folder>
+    </table>
+   </catalog>
+   <catalog id="CAT268" populated="false" UUID="d8d18693-34bb-4bbc-a481-cdffcb3b3e34" name="test" nativeTerm="database" physicalName="test" >
+   </catalog>
+   <catalog id="CAT269" populated="false" UUID="3185942b-ca90-4618-b760-47db029a3162" name="webauth" nativeTerm="database" physicalName="webauth" >
+   </catalog>
+   <relationships>
+    <relationship id="REL270" populated="true" UUID="5fa6ef3c-26cc-471c-90e1-ae7e79e7853a" deferrability="7" deleteRule="3" fk-table-ref="TAB146" fkCardinality="7" identifying="false" name="tb_orcamento_tb_informativo_fk" physicalName="tb_orcamento_tb_informativo_fk" pk-table-ref="TAB160" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP271" populated="true" UUID="3c1ba61f-52a1-44e1-9fff-63f9443cec58" fk-column-ref="COL148" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL161" />
+    </relationship>
+    <relationship id="REL272" populated="true" UUID="1ae69e12-0053-48b5-8435-15bb118ca4ef" deferrability="7" deleteRule="3" fk-table-ref="TAB160" fkCardinality="7" identifying="false" name="tb_orcamento_tb_orcamento_fk" physicalName="tb_orcamento_tb_orcamento_fk" pk-table-ref="TAB160" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP273" populated="true" UUID="53079d19-766c-4d31-9194-348df0373fd5" fk-column-ref="COL172" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL161" />
+    </relationship>
+    <relationship id="REL274" populated="true" UUID="5b99e93a-ac60-4267-9352-685228fd4acf" deferrability="7" deleteRule="3" fk-table-ref="TAB178" fkCardinality="7" identifying="false" name="tb_orcamento_tb_orcamento_itens_fk" physicalName="tb_orcamento_tb_orcamento_itens_fk" pk-table-ref="TAB160" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP275" populated="true" UUID="ceccc5f9-1366-45c6-9452-3dd1d3ff8f7e" fk-column-ref="COL180" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL161" />
+    </relationship>
+    <relationship id="REL276" populated="true" UUID="b43c287a-7425-4700-bfd2-c1aae90cc02f" deferrability="7" deleteRule="3" fk-table-ref="TAB222" fkCardinality="7" identifying="false" name="tb_orcamento_tb_pedido_fk" physicalName="tb_orcamento_tb_pedido_fk" pk-table-ref="TAB160" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP277" populated="true" UUID="59cc40f0-17d2-4f48-8ee2-a03965f9326c" fk-column-ref="COL233" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL161" />
+    </relationship>
+    <relationship id="REL278" populated="true" UUID="cecb7e72-4aee-43a4-87f7-962ffcd97dc7" deferrability="7" deleteRule="3" fk-table-ref="TAB198" fkCardinality="7" identifying="false" name="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" physicalName="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" pk-table-ref="TAB178" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP279" populated="true" UUID="cd0a872b-e4c4-4a8b-b686-2007b7c4e510" fk-column-ref="COL211" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL179" />
+     <column-mapping id="CMP280" populated="true" UUID="421389dd-be3c-4c16-8b5e-510a72fa69ea" fk-column-ref="COL212" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL180" />
+     <column-mapping id="CMP281" populated="true" UUID="d0c064cf-77c0-471d-ac1c-644a58e99852" fk-column-ref="COL213" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL181" />
+    </relationship>
+    <relationship id="REL282" populated="true" UUID="c522687a-a657-474d-9105-127218d5389c" deferrability="7" deleteRule="3" fk-table-ref="TAB146" fkCardinality="7" identifying="false" name="tb_pedido_tb_informativo_fk" physicalName="tb_pedido_tb_informativo_fk" pk-table-ref="TAB222" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP283" populated="true" UUID="965f61d0-5a76-4779-be25-7234cf68ce11" fk-column-ref="COL149" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL223" />
+    </relationship>
+    <relationship id="REL284" populated="true" UUID="a573b516-b019-43c8-852a-54301d0ea8c2" deferrability="7" deleteRule="3" fk-table-ref="TAB239" fkCardinality="7" identifying="false" name="tb_pedido_tb_pedido_itens_fk" physicalName="tb_pedido_tb_pedido_itens_fk" pk-table-ref="TAB222" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP285" populated="true" UUID="176b5070-8889-4127-9514-5d3cefe504e3" fk-column-ref="COL241" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL223" />
+    </relationship>
+    <relationship id="REL286" populated="true" UUID="8990f6d7-794d-4f39-8f41-8bcfc7dc38f7" deferrability="7" deleteRule="3" fk-table-ref="TAB260" fkCardinality="7" identifying="false" name="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" physicalName="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" pk-table-ref="TAB239" pkCardinality="2" updateRule="3" >
+     <column-mapping id="CMP287" populated="true" UUID="804e2a76-e32c-43d9-9bee-d4e9487f072d" fk-column-ref="COL262" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL240" />
+    </relationship>
+   </relationships>
+  </database>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB289" populated="true" UUID="378bb734-1c0f-4256-88a8-f13e090576be" name="tb_informativo" objectType="TABLE" physicalName="tb_informativo" remarks="" >
+   <folder id="FOLTAB2891" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL290" populated="true" UUID="6b11044c-14d8-4826-9598-f43d49aaf598" autoIncrement="true" name="tb_informativo_id" nullable="0" physicalName="tb_informativo_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL147" sourceDataTypeName="INT" type="4" />
+    <column id="COL291" populated="true" UUID="a6a3664b-13d6-484b-8f3d-cdb788a13737" autoIncrement="false" name="tb_orcamento_id" nullable="1" physicalName="tb_orcamento_id" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL148" sourceDataTypeName="INT" type="4" />
+    <column id="COL292" populated="true" UUID="4006ee26-43a0-43dd-9c68-21fe92f2e482" autoIncrement="false" name="tb_pedido_id" nullable="1" physicalName="tb_pedido_id" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL149" sourceDataTypeName="INT" type="4" />
+    <column id="COL293" populated="true" UUID="1eb6f1e8-e030-4658-9c15-37c2e51a961d" autoIncrement="false" name="tb_informativo_tipo" nullable="0" physicalName="tb_informativo_tipo" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL150" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL294" populated="true" UUID="71353a1b-1439-42d3-94be-e67e41dcb52d" autoIncrement="false" name="tb_informativo_descricao" nullable="0" physicalName="tb_informativo_descricao" precision="150" referenceCount="1" remarks="" scale="0" source-column-ref="COL151" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL295" populated="true" UUID="97082298-ee52-4c1b-aec5-ec17fb8bf0b2" autoIncrement="false" name="tb_informativo_data" nullable="0" physicalName="tb_informativo_data" precision="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL152" sourceDataTypeName="DATE" type="91" />
+    <column id="COL296" populated="true" UUID="20af80a3-3a40-4733-821c-73d7d63dcf62" autoIncrement="false" name="tb_informativo_origem" nullable="0" physicalName="tb_informativo_origem" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL153" sourceDataTypeName="CHAR" type="1" />
+    </folder>
+    <folder id="FOLTAB2893" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB2892" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB2894" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX297" populated="true" UUID="195428f4-4fb3-420a-b12f-fbfb3c855fd4" clustered="false" name="tb_informativo_PK" physicalName="tb_informativo_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC298" populated="true" UUID="ec358f63-4279-41c3-ac0f-24d51f108866" ascendingOrDescending="UNSPECIFIED" column-ref="COL290" name="tb_informativo_id" physicalName="tb_informativo_id" />
+    </index>
+    <index id="IDX299" populated="true" UUID="687ff0c8-d3ba-498b-bb6e-983c49a170f0" clustered="false" index-type="BTREE" name="tb_orcamento_tb_informativo_fk" physicalName="tb_orcamento_tb_informativo_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC300" populated="true" UUID="16ed88f2-0f73-4894-ae2e-396bff91a41b" ascendingOrDescending="ASCENDING" column-ref="COL291" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+    </index>
+    <index id="IDX301" populated="true" UUID="231ca66f-36d9-4387-9cc3-464ae67782e4" clustered="false" index-type="BTREE" name="tb_pedido_tb_informativo_fk" physicalName="tb_pedido_tb_informativo_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC302" populated="true" UUID="4aed879c-f727-4f56-9787-8f995fdf854d" ascendingOrDescending="ASCENDING" column-ref="COL292" name="tb_pedido_id" physicalName="tb_pedido_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB303" populated="true" UUID="0ff88233-933a-4b3c-a0b6-0beeac79d721" name="tb_orcamento" objectType="TABLE" physicalName="tb_orcamento" remarks="" >
+   <folder id="FOLTAB3031" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL304" populated="true" UUID="bfb2603a-cb5b-4628-b863-b22e57777e74" autoIncrement="true" name="tb_orcamento_id" nullable="0" physicalName="tb_orcamento_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL161" sourceDataTypeName="INT" type="4" />
+    <column id="COL305" populated="true" UUID="95beb7d9-4b5f-423f-ab74-d4c8dc2e1565" autoIncrement="false" name="tb_orcamento_id_cliente" nullable="0" physicalName="tb_orcamento_id_cliente" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL162" sourceDataTypeName="INT" type="4" />
+    <column id="COL306" populated="true" UUID="ea6e768b-cfd2-4396-aae3-f86097e08bc2" autoIncrement="false" name="tb_orcamento_contato" nullable="0" physicalName="tb_orcamento_contato" precision="50" referenceCount="1" remarks="" scale="0" source-column-ref="COL163" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL307" populated="true" UUID="849707ed-db67-4925-a1db-dcfea627281b" autoIncrement="false" name="tb_orcamento_telefone" nullable="0" physicalName="tb_orcamento_telefone" precision="12" referenceCount="1" remarks="" scale="0" source-column-ref="COL164" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL308" populated="true" UUID="6c480e8b-cbc0-46d7-ab4e-985a9e1ba677" autoIncrement="false" name="tb_orcamento_email" nullable="0" physicalName="tb_orcamento_email" precision="200" referenceCount="1" remarks="" scale="0" source-column-ref="COL165" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL309" populated="true" UUID="b58bbe02-4ad8-481f-97fd-0c68a801754b" autoIncrement="false" name="tb_orcamento_data" nullable="0" physicalName="tb_orcamento_data" precision="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL166" sourceDataTypeName="DATE" type="91" />
+    <column id="COL310" populated="true" UUID="b1779219-2c10-4cb5-a2fb-862e4204b735" autoIncrement="false" name="tb_orcamento_id_vendedor" nullable="0" physicalName="tb_orcamento_id_vendedor" precision="2" referenceCount="1" remarks="" scale="0" source-column-ref="COL167" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL311" populated="true" UUID="80d9e59d-c082-4fad-9f3f-a6aa5974ddfb" autoIncrement="false" name="tb_orcamento_id_plano" nullable="0" physicalName="tb_orcamento_id_plano" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL168" sourceDataTypeName="INT" type="4" />
+    <column id="COL312" populated="true" UUID="0d49c9bb-af07-4ae6-9822-7d635a8e3fa5" autoIncrement="false" name="tb_orcamento_obs" nullable="0" physicalName="tb_orcamento_obs" precision="200" referenceCount="1" remarks="" scale="0" source-column-ref="COL169" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL313" populated="true" UUID="cc0ca8c0-c75d-401e-b7ae-f8be534b02fa" autoIncrement="false" name="tb_orcamento_nivel" nullable="0" physicalName="tb_orcamento_nivel" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL170" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL314" populated="true" UUID="0b1fa9cd-4f81-47df-b5fa-ce98a3e9e58c" autoIncrement="false" name="tb_orcamento_total_orcamento" nullable="0" physicalName="tb_orcamento_total_orcamento" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL171" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL315" populated="true" UUID="d0b7a68e-4db2-49c6-a779-41d88fecdc56" autoIncrement="false" name="tb_orcamento_id_principal_ou_resposta" nullable="1" physicalName="tb_orcamento_id_principal_ou_resposta" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL172" sourceDataTypeName="INT" type="4" />
+    <column id="COL316" populated="true" UUID="5bce5152-fa8f-4499-8773-f64dcadd9bdf" autoIncrement="false" name="tb_orcamento_data_resposta_cliente" nullable="0" physicalName="tb_orcamento_data_resposta_cliente" precision="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL173" sourceDataTypeName="DATE" type="91" />
+    </folder>
+    <folder id="FOLTAB3033" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB3032" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB3034" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX317" populated="true" UUID="ca44bbd3-c596-4902-be14-80dcc0e6a0a1" clustered="false" name="tb_orcamento_PK" physicalName="tb_orcamento_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC318" populated="true" UUID="5faf71a5-b385-435c-ab12-65a75f6fef37" ascendingOrDescending="UNSPECIFIED" column-ref="COL304" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+    </index>
+    <index id="IDX319" populated="true" UUID="f89a4d59-31d4-44b4-a892-1e18999fe896" clustered="false" index-type="BTREE" name="tb_orcamento_tb_orcamento_fk" physicalName="tb_orcamento_tb_orcamento_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC320" populated="true" UUID="7497e287-72d6-4e91-804a-9fdf413a8976" ascendingOrDescending="ASCENDING" column-ref="COL315" name="tb_orcamento_id_principal_ou_resposta" physicalName="tb_orcamento_id_principal_ou_resposta" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB321" populated="true" UUID="a6789a6f-e6dc-4c28-90c6-11a2fc9b5099" name="tb_orcamento_itens" objectType="TABLE" physicalName="tb_orcamento_itens" remarks="" >
+   <folder id="FOLTAB3211" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL322" populated="true" UUID="7af2bf36-bf45-4cd8-9593-a01f96a76d59" autoIncrement="true" name="tb_orcamento_itens_id" nullable="0" physicalName="tb_orcamento_itens_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL179" sourceDataTypeName="INT" type="4" />
+    <column id="COL323" populated="true" UUID="a05cb8e9-e0f2-4815-a788-f1cf6ef81dd8" autoIncrement="false" name="tb_orcamento_id" nullable="0" physicalName="tb_orcamento_id" precision="10" primaryKeySeq="1" referenceCount="2" remarks="" scale="0" source-column-ref="COL180" sourceDataTypeName="INT" type="4" />
+    <column id="COL324" populated="true" UUID="fdfcffcc-c820-439f-add2-bb29722316fb" autoIncrement="false" name="tb_orcamento_itens_seq" nullable="0" physicalName="tb_orcamento_itens_seq" precision="10" primaryKeySeq="2" referenceCount="1" remarks="" scale="0" source-column-ref="COL181" sourceDataTypeName="INT" type="4" />
+    <column id="COL325" populated="true" UUID="adec4949-9b0b-48a8-b54a-aceb866fa989" autoIncrement="false" name="tb_orcamento_itens_id_produto" nullable="0" physicalName="tb_orcamento_itens_id_produto" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL182" sourceDataTypeName="INT" type="4" />
+    <column id="COL326" populated="true" UUID="1e5b30e0-68e5-4d5b-8a83-356cae24f7a0" autoIncrement="false" autoIncrementSequenceName="tb_orcamento_itens_tb_orcamento_itens_tipo_seq" defaultValue="" name="tb_orcamento_itens_tipo" nullable="0" physicalName="tb_orcamento_itens_tipo" precision="1" referenceCount="1" remarks="" scale="0" type="1" />
+    <column id="COL327" populated="true" UUID="5128750a-503b-4277-b200-45fb6e24e760" autoIncrement="false" name="tb_orcamento_itens_referencia_produto" nullable="0" physicalName="tb_orcamento_itens_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL183" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL328" populated="true" UUID="3a679a27-380f-4688-b7f6-569544bb35cc" autoIncrement="false" name="tb_orcamento_itens_descricao_produto" nullable="0" physicalName="tb_orcamento_itens_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" source-column-ref="COL184" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL329" populated="true" UUID="01e6a8cd-e5f3-4b84-9ccf-5b8feb7d4a46" autoIncrement="false" name="tb_orcamento_itens_marca_produto" nullable="0" physicalName="tb_orcamento_itens_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL185" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL330" populated="true" UUID="2208f2e4-f2e2-4d86-b840-50d9a2b738fc" autoIncrement="false" name="tb_orcamento_itens_qt_produto" nullable="0" physicalName="tb_orcamento_itens_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL186" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL331" populated="true" UUID="fe5be9e1-cd2b-44d8-ab70-e98511d72a68" autoIncrement="false" autoIncrementSequenceName="tb_orcamento_itens_tb_orcamento_itens_un_produto_seq" defaultValue="" name="tb_orcamento_itens_un_produto" nullable="0" physicalName="tb_orcamento_itens_un_produto" precision="3" referenceCount="1" remarks="" scale="0" type="1" />
+    <column id="COL332" populated="true" UUID="ba768edf-effb-40d7-8f8c-c83fec04922e" autoIncrement="false" name="tb_orcamento_itens_preco_lista" nullable="0" physicalName="tb_orcamento_itens_preco_lista" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL187" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL333" populated="true" UUID="c64dfeff-6ad1-482a-9ecf-de0256b82091" autoIncrement="false" name="tb_orcamento_itens_percentual_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL188" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL334" populated="true" UUID="ef1b6630-8f24-45c1-b1fc-bc768ef77531" autoIncrement="false" name="tb_orcamento_itens_valor_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL189" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL335" populated="true" UUID="cb603746-fb0d-43ed-b8a6-9e13ff17bb5b" autoIncrement="false" name="tb_orcamento_itens_valor_unit_produto" nullable="0" physicalName="tb_orcamento_itens_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL190" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL336" populated="true" UUID="e1cf0188-9fdc-4e8f-b920-8d1989d62492" autoIncrement="false" name="tb_orcamento_itens_valor_total_produto" nullable="0" physicalName="tb_orcamento_itens_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL191" sourceDataTypeName="DOUBLE" type="8" />
+    </folder>
+    <folder id="FOLTAB3213" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB3212" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB3214" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX337" populated="true" UUID="e435e303-a2b2-45da-b402-35d468445841" clustered="false" name="tb_orcamento_itens_PK" physicalName="tb_orcamento_itens_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC338" populated="true" UUID="a3759ba9-079a-4b51-bb2c-f84772856fd7" ascendingOrDescending="UNSPECIFIED" column-ref="COL322" name="tb_orcamento_itens_id" physicalName="tb_orcamento_itens_id" />
+     <index-column id="IDC339" populated="true" UUID="b6279b45-96d5-4bd4-8067-2014f42b99cc" ascendingOrDescending="UNSPECIFIED" column-ref="COL323" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+     <index-column id="IDC340" populated="true" UUID="a75ccc47-6bb9-4274-94a7-e72fadf830a8" ascendingOrDescending="UNSPECIFIED" column-ref="COL324" name="tb_orcamento_itens_seq" physicalName="tb_orcamento_itens_seq" />
+    </index>
+    <index id="IDX341" populated="true" UUID="c3d88fdd-b38c-49fe-bb8c-79be52efd912" clustered="false" index-type="BTREE" name="tb_orcamento_tb_orcamento_itens_fk" physicalName="tb_orcamento_tb_orcamento_itens_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC342" populated="true" UUID="730f80c3-0f7d-483b-8df2-0615ad365b49" ascendingOrDescending="ASCENDING" column-ref="COL323" name="tb_orcamento_id" physicalName="tb_orcamento_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB343" populated="true" UUID="2b946b6a-aa9c-41f8-b4ed-11fe5893b2e3" name="tb_orcamento_itens_resposta" objectType="TABLE" physicalName="tb_orcamento_itens_resposta" remarks="" >
+   <folder id="FOLTAB3431" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL344" populated="true" UUID="2202690f-b2c9-4cfb-80aa-e7cf4bea564a" autoIncrement="true" name="tb_orcamento_itens_resposta_id" nullable="0" physicalName="tb_orcamento_itens_resposta_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL199" sourceDataTypeName="INT" type="4" />
+    <column id="COL345" populated="true" UUID="446656f7-237e-455f-9050-ec5154c1d0de" autoIncrement="false" name="tb_orcamento_itens_resposta_id_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_id_produto" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL200" sourceDataTypeName="INT" type="4" />
+    <column id="COL346" populated="true" UUID="ff4ca681-20e2-40ad-aa8d-c5b506755237" autoIncrement="false" name="tb_orcamento_itens_resposta_referencia_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL201" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL347" populated="true" UUID="911e69ef-45b1-4988-865d-d10ced85196f" autoIncrement="false" name="tb_orcamento_itens_resposta_descricao_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" source-column-ref="COL202" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL348" populated="true" UUID="40177cc7-0652-4b66-bf56-b0a61410f99c" autoIncrement="false" name="tb_orcamento_itens_resposta_marca_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL203" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL349" populated="true" UUID="07d6d596-f4b7-4691-bfb5-047e12a85bac" autoIncrement="false" name="tb_orcamento_itens_resposta_qt_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL204" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL350" populated="true" UUID="5804540b-8416-4974-a146-bfdc3ab601ad" autoIncrement="false" name="tb_orcamento_itens_resposta_preco_lista" nullable="0" physicalName="tb_orcamento_itens_resposta_preco_lista" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL205" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL351" populated="true" UUID="bc579261-1525-4e0c-9907-dd147710e135" autoIncrement="false" name="tb_orcamento_itens_resposta_percentual_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL206" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL352" populated="true" UUID="5cdd88f0-ae34-4556-8681-3d40747ecc2b" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_desconto_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL207" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL353" populated="true" UUID="2df64d8f-7db3-47a3-9ec9-d3d14e22c19b" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_unit_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL208" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL354" populated="true" UUID="6d375662-af9c-4cab-89b6-64a0da709f9b" autoIncrement="false" name="tb_orcamento_itens_resposta_valor_total_produto" nullable="0" physicalName="tb_orcamento_itens_resposta_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL209" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL355" populated="true" UUID="9a147606-40bc-4bb8-a75b-c7ef45f1b75c" autoIncrement="false" name="tb_orcamento_itens_resposta_prazo_entrega" nullable="0" physicalName="tb_orcamento_itens_resposta_prazo_entrega" precision="50" referenceCount="1" remarks="" scale="0" source-column-ref="COL210" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL356" populated="true" UUID="317b0aaa-3e0b-4868-bf52-ca3504d8f3c1" autoIncrement="false" name="tb_orcamento_itens_id_principal" nullable="0" physicalName="tb_orcamento_itens_id_principal" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL211" sourceDataTypeName="INT" type="4" />
+    <column id="COL357" populated="true" UUID="6759f3e1-0530-433e-8912-f8a66596ac4f" autoIncrement="false" name="tb_orcamento_id_principal" nullable="0" physicalName="tb_orcamento_id_principal" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL212" sourceDataTypeName="INT" type="4" />
+    <column id="COL358" populated="true" UUID="adc8fb93-febc-4046-b778-e40e690caa8d" autoIncrement="false" name="tb_orcamento_itens_seq_principal" nullable="0" physicalName="tb_orcamento_itens_seq_principal" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL213" sourceDataTypeName="INT" type="4" />
+    <column id="COL359" populated="true" UUID="c3ec36c5-b460-41e4-8e9b-98f78c1f6aa1" autoIncrement="false" name="tb_orcamento_itens_resposta_status" nullable="0" physicalName="tb_orcamento_itens_resposta_status" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL214" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL360" populated="true" UUID="c5c86970-5162-4928-b51a-dc74faec0180" autoIncrement="false" name="tb_orcamento_itens_resposta_id_fornecedor" nullable="0" physicalName="tb_orcamento_itens_resposta_id_fornecedor" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL215" sourceDataTypeName="INT" type="4" />
+    </folder>
+    <folder id="FOLTAB3433" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB3432" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB3434" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX361" populated="true" UUID="5cfb9fd9-0bdd-42e8-9b15-903c65371790" clustered="false" name="tb_orcamento_itens_resposta_PK" physicalName="tb_orcamento_itens_resposta_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC362" populated="true" UUID="a1c466f2-e2c3-4482-8b6f-051c18a2dac9" ascendingOrDescending="UNSPECIFIED" column-ref="COL344" name="tb_orcamento_itens_resposta_id" physicalName="tb_orcamento_itens_resposta_id" />
+    </index>
+    <index id="IDX363" populated="true" UUID="c79bb26e-ddfd-4a31-808f-a1dfb2ef9353" clustered="false" index-type="BTREE" name="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" physicalName="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC364" populated="true" UUID="a187bbae-9d4c-4163-a6c5-7c8d30570557" ascendingOrDescending="ASCENDING" column-ref="COL356" name="tb_orcamento_itens_id_principal" physicalName="tb_orcamento_itens_id_principal" />
+     <index-column id="IDC365" populated="true" UUID="215bd5a5-b7db-47d3-9369-18029543465e" ascendingOrDescending="ASCENDING" column-ref="COL357" name="tb_orcamento_id_principal" physicalName="tb_orcamento_id_principal" />
+     <index-column id="IDC366" populated="true" UUID="a7d7223f-361e-4bd2-b655-6f218808a05c" ascendingOrDescending="ASCENDING" column-ref="COL358" name="tb_orcamento_itens_seq_principal" physicalName="tb_orcamento_itens_seq_principal" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB367" populated="true" UUID="5cb4c4b7-eeb8-4dc4-be0a-2dbd14385089" name="tb_pedido" objectType="TABLE" physicalName="tb_pedido" remarks="" >
+   <folder id="FOLTAB3671" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL368" populated="true" UUID="42d5bdd5-e64b-4300-8e79-638347bfa5f6" autoIncrement="true" name="tb_pedido_id" nullable="0" physicalName="tb_pedido_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL223" sourceDataTypeName="INT" type="4" />
+    <column id="COL369" populated="true" UUID="10cfa819-d28a-4ead-8b59-7cf91027e833" autoIncrement="false" name="tb_pedido_id_cliente" nullable="0" physicalName="tb_pedido_id_cliente" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL224" sourceDataTypeName="INT" type="4" />
+    <column id="COL370" populated="true" UUID="9fdc81b9-a4f2-4a7e-b719-4f6de532acfd" autoIncrement="false" name="tb_pedido_contato" nullable="0" physicalName="tb_pedido_contato" precision="50" referenceCount="1" remarks="" scale="0" source-column-ref="COL225" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL371" populated="true" UUID="1b3a79d3-2678-4a9b-a9b9-d95970a22eca" autoIncrement="false" name="tb_pedido_telefone" nullable="0" physicalName="tb_pedido_telefone" precision="12" referenceCount="1" remarks="" scale="0" source-column-ref="COL226" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL372" populated="true" UUID="f8b76524-6813-4cc6-810f-2565a911eb03" autoIncrement="false" name="tb_pedido_email" nullable="1" physicalName="tb_pedido_email" precision="200" referenceCount="1" remarks="" scale="0" source-column-ref="COL227" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL373" populated="true" UUID="1046f8f0-1b24-423e-94dc-adeb54f71f5e" autoIncrement="false" name="tb_pedido_data" nullable="0" physicalName="tb_pedido_data" precision="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL228" sourceDataTypeName="DATE" type="91" />
+    <column id="COL374" populated="true" UUID="3bfb8428-14b3-43a0-8006-3a7ad09d57f6" autoIncrement="false" name="tb_pedido_id_vendedor" nullable="0" physicalName="tb_pedido_id_vendedor" precision="2" referenceCount="1" remarks="" scale="0" source-column-ref="COL229" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL375" populated="true" UUID="016be4a1-1839-44cd-9c59-a0face4dba20" autoIncrement="false" name="tb_pedido_id_plano" nullable="0" physicalName="tb_pedido_id_plano" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL230" sourceDataTypeName="INT" type="4" />
+    <column id="COL376" populated="true" UUID="8febaa32-1a56-4240-9f46-01c17a348f83" autoIncrement="false" name="tb_pedido_obs" nullable="0" physicalName="tb_pedido_obs" precision="200" referenceCount="1" remarks="" scale="0" source-column-ref="COL231" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL377" populated="true" UUID="6f5d8806-83fa-445d-bed1-d7caa1d6239a" autoIncrement="false" name="tb_pedido_valor_total_pedido" nullable="0" physicalName="tb_pedido_valor_total_pedido" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL232" sourceDataTypeName="INT" type="4" />
+    <column id="COL378" populated="true" UUID="3904535b-a277-4054-8233-d3a73bba6696" autoIncrement="false" name="tb_orcamento_ID" nullable="1" physicalName="tb_orcamento_ID" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL233" sourceDataTypeName="INT" type="4" />
+    <column id="COL379" populated="true" UUID="4d89b442-65c2-474b-9d29-16304e07af23" autoIncrement="false" name="tb_pedido_status" nullable="0" physicalName="tb_pedido_status" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL234" sourceDataTypeName="CHAR" type="1" />
+    </folder>
+    <folder id="FOLTAB3673" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB3672" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB3674" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX380" populated="true" UUID="193155b6-1be9-47b5-9a50-6a20a14d77ab" clustered="false" name="tb_pedido_PK" physicalName="tb_pedido_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC381" populated="true" UUID="91062348-557d-4562-a9dc-ed6002758ee8" ascendingOrDescending="UNSPECIFIED" column-ref="COL368" name="tb_pedido_id" physicalName="tb_pedido_id" />
+    </index>
+    <index id="IDX382" populated="true" UUID="478fa43c-9f23-4a81-9e7a-5b635314db00" clustered="false" index-type="BTREE" name="tb_orcamento_tb_pedido_fk" physicalName="tb_orcamento_tb_pedido_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC383" populated="true" UUID="73f1083b-2195-4b3d-b222-a6ff52c07ec3" ascendingOrDescending="ASCENDING" column-ref="COL378" name="tb_orcamento_ID" physicalName="tb_orcamento_ID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB384" populated="true" UUID="0b0c4356-e5a0-42ab-afcb-91de19c893c4" name="tb_pedido_itens" objectType="TABLE" physicalName="tb_pedido_itens" remarks="" >
+   <folder id="FOLTAB3841" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL385" populated="true" UUID="3e2d72a4-66c9-4b80-b248-0847b132ae0d" autoIncrement="true" name="tb_pedido_itens_id" nullable="0" physicalName="tb_pedido_itens_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL240" sourceDataTypeName="INT" type="4" />
+    <column id="COL386" populated="true" UUID="f7a061f6-dcf9-4343-bcc9-861e2fe63c9a" autoIncrement="false" name="tb_pedido_id" nullable="0" physicalName="tb_pedido_id" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL241" sourceDataTypeName="INT" type="4" />
+    <column id="COL387" populated="true" UUID="ecd8bcaf-2082-4e3d-bb07-96fb10149113" autoIncrement="false" name="tb_pedido_itens_seq" nullable="0" physicalName="tb_pedido_itens_seq" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL242" sourceDataTypeName="INT" type="4" />
+    <column id="COL388" populated="true" UUID="79ace0b0-c977-473d-99ea-70a109047937" autoIncrement="false" name="tb_pedido_itens_id_produto" nullable="0" physicalName="tb_pedido_itens_id_produto" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL243" sourceDataTypeName="INT" type="4" />
+    <column id="COL389" populated="true" UUID="9426387b-4e7f-48fe-ad0d-ba16cd16851f" autoIncrement="false" name="tb_pedido_itens_referencia_produto" nullable="0" physicalName="tb_pedido_itens_referencia_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL244" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL390" populated="true" UUID="153c1961-79bc-4556-bea1-c21bde4448e4" autoIncrement="false" name="tb_pedido_itens_descricao_produto" nullable="0" physicalName="tb_pedido_itens_descricao_produto" precision="150" referenceCount="1" remarks="" scale="0" source-column-ref="COL245" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL391" populated="true" UUID="fb5e2d18-df1f-40f6-8831-d4fdb5383e91" autoIncrement="false" name="tb_pedido_itens_marca_produto" nullable="0" physicalName="tb_pedido_itens_marca_produto" precision="40" referenceCount="1" remarks="" scale="0" source-column-ref="COL246" sourceDataTypeName="VARCHAR" type="12" />
+    <column id="COL392" populated="true" UUID="0158f864-c21f-45f7-882e-64831451bab2" autoIncrement="false" name="tb_pedido_itens_qt_produto" nullable="0" physicalName="tb_pedido_itens_qt_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL247" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL393" populated="true" UUID="cb016d01-df09-4c1e-ba70-b4c45bd2d244" autoIncrement="false" name="tb_pedido_itens_preco_lista_produto" nullable="0" physicalName="tb_pedido_itens_preco_lista_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL248" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL394" populated="true" UUID="838d9cde-c9df-4445-b7e2-6b029550284b" autoIncrement="false" name="tb_pedido_itens_percentual_desconto_produto" nullable="0" physicalName="tb_pedido_itens_percentual_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL249" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL395" populated="true" UUID="cc4a4891-615d-463c-8964-5be99f962690" autoIncrement="false" name="tb_pedido_itens_valor_desconto_produto" nullable="0" physicalName="tb_pedido_itens_valor_desconto_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL250" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL396" populated="true" UUID="a142ee98-45e5-4361-9d59-fc973d320b98" autoIncrement="false" name="tb_pedido_itens_valor_unit_produto" nullable="0" physicalName="tb_pedido_itens_valor_unit_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL251" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL397" populated="true" UUID="7b90537b-7ac3-41ce-8d03-c253c4ed73c8" autoIncrement="false" name="tb_pedido_itens_valor_total_produto" nullable="0" physicalName="tb_pedido_itens_valor_total_produto" precision="22" referenceCount="1" remarks="" scale="0" source-column-ref="COL252" sourceDataTypeName="DOUBLE" type="8" />
+    <column id="COL398" populated="true" UUID="d58e67e4-f057-4d11-9de0-5d4a475e6aff" autoIncrement="false" name="tb_pedido_itens_status_pedido" nullable="0" physicalName="tb_pedido_itens_status_pedido" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL253" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL399" populated="true" UUID="2e8e5dc3-a4fa-47fa-8ed0-ef80661d3df6" autoIncrement="false" name="tb_pedido_itens_status_estoque" nullable="0" physicalName="tb_pedido_itens_status_estoque" precision="1" referenceCount="1" remarks="" scale="0" source-column-ref="COL254" sourceDataTypeName="CHAR" type="1" />
+    <column id="COL400" populated="true" UUID="65483b6a-6817-4e05-b27d-1356f3c0d552" autoIncrement="false" name="tb_pedido_itens_previsao_entrega" nullable="0" physicalName="tb_pedido_itens_previsao_entrega" precision="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL255" sourceDataTypeName="DATE" type="91" />
+    </folder>
+    <folder id="FOLTAB3843" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB3842" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB3844" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX401" populated="true" UUID="cca042c0-47f2-4ff9-8a13-1e9cfbcbb0ad" clustered="false" name="tb_pedido_itens_PK" physicalName="tb_pedido_itens_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC402" populated="true" UUID="4a864006-3477-44a8-94e0-c94cea7eeee7" ascendingOrDescending="UNSPECIFIED" column-ref="COL385" name="tb_pedido_itens_id" physicalName="tb_pedido_itens_id" />
+    </index>
+    <index id="IDX403" populated="true" UUID="7148365a-4013-4ede-b57b-c85037087e6e" clustered="false" index-type="BTREE" name="tb_pedido_tb_pedido_itens_fk" physicalName="tb_pedido_tb_pedido_itens_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC404" populated="true" UUID="1ce743aa-a65d-4807-9278-b20abd5720a1" ascendingOrDescending="ASCENDING" column-ref="COL386" name="tb_pedido_id" physicalName="tb_pedido_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB405" populated="true" UUID="e3cace07-98f5-4897-99be-d62da2a9614d" name="tb_pedido_itens_fornecedores" objectType="TABLE" physicalName="tb_pedido_itens_fornecedores" remarks="" >
+   <folder id="FOLTAB4051" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL406" populated="true" UUID="44d26e94-509a-407a-85ef-da36cb15847f" autoIncrement="true" name="tb_pedido_itens_fornecedores_id" nullable="0" physicalName="tb_pedido_itens_fornecedores_id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" source-column-ref="COL261" sourceDataTypeName="INT" type="4" />
+    <column id="COL407" populated="true" UUID="7de1931b-929a-4c60-ba1a-8329263327dd" autoIncrement="false" name="tb_pedido_itens_id" nullable="0" physicalName="tb_pedido_itens_id" precision="10" referenceCount="2" remarks="" scale="0" source-column-ref="COL262" sourceDataTypeName="INT" type="4" />
+    <column id="COL408" populated="true" UUID="c73d94e7-c16d-4c0f-b34d-b430883026a3" autoIncrement="false" name="tb_pedido_itens_fornecedores_id_fornecedor" nullable="0" physicalName="tb_pedido_itens_fornecedores_id_fornecedor" precision="10" referenceCount="1" remarks="" scale="0" source-column-ref="COL263" sourceDataTypeName="INT" type="4" />
+    </folder>
+    <folder id="FOLTAB4053" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB4052" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB4054" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX409" populated="true" UUID="24bf2d28-313c-445f-8ce2-7e3f4a700257" clustered="false" name="tb_pedido_itens_fornecedores_PK" physicalName="tb_pedido_itens_fornecedores_PK" primaryKeyIndex="true" qualifier="" unique="true" >
+     <index-column id="IDC410" populated="true" UUID="42692816-8ee8-4f03-9bb1-085418323f52" ascendingOrDescending="UNSPECIFIED" column-ref="COL406" name="tb_pedido_itens_fornecedores_id" physicalName="tb_pedido_itens_fornecedores_id" />
+    </index>
+    <index id="IDX411" populated="true" UUID="d2cb716f-c13d-4e9b-839a-374b8dfa3a5b" clustered="false" index-type="BTREE" name="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" physicalName="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" primaryKeyIndex="false" qualifier="" unique="false" >
+     <index-column id="IDC412" populated="true" UUID="4fb500f6-b91a-4f66-9afe-f63ffb1ac9c5" ascendingOrDescending="ASCENDING" column-ref="COL407" name="tb_pedido_itens_id" physicalName="tb_pedido_itens_id" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL413" populated="true" UUID="46b5c02f-2b57-483d-b9e4-fb7fd3d4faba" deferrability="7" deleteRule="3" fk-table-ref="TAB289" fkCardinality="7" identifying="false" name="tb_orcamento_tb_informativo_fk" physicalName="tb_orcamento_tb_informativo_fk" pk-table-ref="TAB303" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP414" populated="true" UUID="84ab7ee7-0237-4ce8-88e1-6fafa2522243" fk-column-ref="COL291" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL304" />
+   </relationship>
+   <relationship id="REL415" populated="true" UUID="36978fe6-86ba-4a50-8a75-08cf35a4c4fd" deferrability="7" deleteRule="3" fk-table-ref="TAB303" fkCardinality="7" identifying="false" name="tb_orcamento_tb_orcamento_fk" physicalName="tb_orcamento_tb_orcamento_fk" pk-table-ref="TAB303" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP416" populated="true" UUID="e07826d7-2103-4631-8f62-ee548b09e30d" fk-column-ref="COL315" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL304" />
+   </relationship>
+   <relationship id="REL417" populated="true" UUID="1aab4144-94ea-4307-b553-94a0b0534bb3" deferrability="7" deleteRule="3" fk-table-ref="TAB321" fkCardinality="7" identifying="true" name="tb_orcamento_tb_orcamento_itens_fk" physicalName="tb_orcamento_tb_orcamento_itens_fk" pk-table-ref="TAB303" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP418" populated="true" UUID="6c2bfcef-e353-4c1e-a69e-dd84715cafee" fk-column-ref="COL323" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL304" />
+   </relationship>
+   <relationship id="REL419" populated="true" UUID="3e917a92-a0e0-4cb2-b74d-de0aec1db257" deferrability="7" deleteRule="3" fk-table-ref="TAB367" fkCardinality="7" identifying="false" name="tb_orcamento_tb_pedido_fk" physicalName="tb_orcamento_tb_pedido_fk" pk-table-ref="TAB303" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP420" populated="true" UUID="09d2759b-3b74-488a-9e68-66b21a1a2341" fk-column-ref="COL378" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL304" />
+   </relationship>
+   <relationship id="REL421" populated="true" UUID="50220a17-5e98-4dec-b51e-8fd3de8c87b7" deferrability="7" deleteRule="3" fk-table-ref="TAB343" fkCardinality="7" identifying="false" name="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" physicalName="tb_orcamento_itens_tb_orcamento_itens_resposta_fk" pk-table-ref="TAB321" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP422" populated="true" UUID="79ac1351-70f3-4009-a9f3-500df34f82e0" fk-column-ref="COL356" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL322" />
+    <column-mapping id="CMP423" populated="true" UUID="0f9f9400-e522-412d-9433-9001df895d22" fk-column-ref="COL357" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL323" />
+    <column-mapping id="CMP424" populated="true" UUID="1d244da9-5e41-4171-99d5-4e1bda25014b" fk-column-ref="COL358" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL324" />
+   </relationship>
+   <relationship id="REL425" populated="true" UUID="f8d69396-37dc-400c-9240-038c3738bd8b" deferrability="7" deleteRule="3" fk-table-ref="TAB289" fkCardinality="7" identifying="false" name="tb_pedido_tb_informativo_fk" physicalName="tb_pedido_tb_informativo_fk" pk-table-ref="TAB367" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP426" populated="true" UUID="26fddc30-58d0-42a0-ad9f-4596034c5ef7" fk-column-ref="COL292" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL368" />
+   </relationship>
+   <relationship id="REL427" populated="true" UUID="d7e2fc08-feb3-41a6-a4b9-eb3882621c6a" deferrability="7" deleteRule="3" fk-table-ref="TAB384" fkCardinality="7" identifying="false" name="tb_pedido_tb_pedido_itens_fk" physicalName="tb_pedido_tb_pedido_itens_fk" pk-table-ref="TAB367" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP428" populated="true" UUID="08d82525-942a-4f76-a34b-7cdd634c3cfc" fk-column-ref="COL386" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL368" />
+   </relationship>
+   <relationship id="REL429" populated="true" UUID="7f51b669-8fe2-4d23-9abe-b08b802786ca" deferrability="7" deleteRule="3" fk-table-ref="TAB405" fkCardinality="7" identifying="false" name="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" physicalName="tb_pedido_itens_tb_pedido_itens_fornecedores_fk" pk-table-ref="TAB384" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP430" populated="true" UUID="3f5f072a-a66a-4ace-8066-732db546aaae" fk-column-ref="COL407" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL385" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="retensul"> </ddl-generator>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="373" viewportY="1" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB289" x="210" y="126" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB303" x="223" y="365" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB321" x="670" y="380" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB343" x="1006" y="126" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB367" x="1356" y="126" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB384" x="1559" y="126" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB405" x="1842" y="126" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL413" pk-x="14" pk-y="0" fk-x="177" fk-y="127" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL415" pk-x="123" pk-y="211" fk-x="0" fk-y="105" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL417" pk-x="278" pk-y="105" fk-x="0" fk-y="105" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL421" pk-x="212" pk-y="0" fk-x="0" fk-y="10" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
+  <table-link relationship-ref="REL425" pk-x="0" pk-y="95" fk-x="206" fk-y="66" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL419" pk-x="278" pk-y="104" fk-x="0" fk-y="99" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL427" pk-x="198" pk-y="109" fk-x="0" fk-y="110" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL429" pk-x="278" pk-y="81" fk-x="27" fk-y="71" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="65"/>
+ </play-pen>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
