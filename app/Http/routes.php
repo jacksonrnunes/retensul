@@ -50,7 +50,9 @@ Route::get('/pedido/deletar/{id}', 'Painel\Tb_pedidoController@destroy');
 
 Route::get('/vendedores', 'Painel\VendedoresController@index');
 
-Route::get('/MeliCategories', 'Painel\MeliCategoriesController@buscar');
+Route::get('/MeliSuperCategories', 'Painel\MeliSuperCategoriesController@buscar');
+Route::get('/MeliCategories/{categorie}', 'Painel\MeliCategoriesController@buscar');
+Route::post('/MeliSuperCategories/save', 'Painel\MeliSuperCategoriesController@salvar');
 
 
 

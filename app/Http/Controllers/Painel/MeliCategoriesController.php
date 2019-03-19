@@ -15,7 +15,7 @@ class MeliCategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $Pessoas;
+    private $MeliCategories;
 
     public function __construct(MeliCategories $MeliCategories) {
 
@@ -23,21 +23,24 @@ class MeliCategoriesController extends Controller
     }
     public function index()
     {
-        $MeliCategories = MeliCategories::all();
+        $MeliCategories = MeliCategories::orderBy('melicategories_descricao')->get();
         return view('site.MeliCategories');
     }
-    public function buscar()
+    public function buscar($id_categorie)
     {
         $meli = new Meli('5147268795692492', 'hZ9XuZJnAStRnmoIATKTInw7JCo8HHkn');
-        $result = $meli->get('https://api.mercadolibre.com/sites/MLB/categories'); 
+        $result = $meli->get("https://api.mercadolibre.com/categories/".$id_categorie); 
         //print_r($result);
         $result = $result["body"];
+        
         //$result = $result[0];
         $result = json_decode(json_encode($result), True);
+        $result = $result["children_categories"];
         //$result = objectToArray($result);
         //$result = $result["name"];
         //print_r($result);
-        return view('site.MeliCategories', compact('result'));
+        $tipo = 'retorno';
+        return view('site.MeliCategories', compact('result', 'tipo'));
     }
 
     /**

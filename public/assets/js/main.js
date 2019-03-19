@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+// Listen for click on toggle checkbox
 
 function ajax_parametros(url,div, dados, tipo, type, datatype)
 {
@@ -34,8 +35,7 @@ function ajax_parametros(url,div, dados, tipo, type, datatype)
               location.reload();
           }
           else
-          {
-              
+          {   
               $(div).html(retorno);
           }
         },
@@ -749,6 +749,34 @@ $(document).on('click', '#duplicar_dados', function () {
     $("#preco_lista_produto_resposta").focus();
     
     
+});
+$(document).on('click', '#cadastrar_categorias', function () {
+    var checkbox = $('input:checkbox[name^=checkbox_categorie]:checked');
+    //alert("oi"+checkbox.length);
+    if(checkbox.length==0)
+    {
+        alert("Nenhuma categoria selecionada"); //Ver no console
+    }
+    else
+    {
+        $(':checkbox').each(function() {
+            if(this.checked == true)
+            {
+                $("#id_categorie_"+this.value).attr("disabled", false);
+                $("#descricao_categorie_"+this.value).attr("disabled", false);
+                //alert("#descricao_categorie_"+this.value);
+            };                        
+        });
+        $("#cadastrar_categorias").attr("type","submit");
+        $("#cadastrar_categorias").validate();
+        $("#cadastrar_categorias").submit();
+    }
+});
+
+$(document).on('click', '.verificar_categoria', function () {
+    //alert('/MeliCategories/'+this.id);
+    ajax_parametros('MeliCategories/'+this.id,"#div_nivel2", '', 'add', 'get', 'html');
+
 });
 
 

@@ -85,7 +85,7 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="MeliCategories">
+                            <a class="nav-link rounded-bottom" href="MeliSuperCategories">
                                 Ver Categorias
                             </a>                                
                         </li>    
@@ -119,5 +119,6 @@
     <script src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.js')}}"></script>
 </body>
 </html>
