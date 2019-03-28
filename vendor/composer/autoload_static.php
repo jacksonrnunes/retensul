@@ -305,9 +305,11 @@ class ComposerStaticInit4ec40f48629aca656a8a2cebd5f11e0c
     );
 
     public static $classMap = array (
+        'AddColunasSuperCategorie' => __DIR__ . '/../..' . '/database/migrations/2019_03_21_233842_add_colunas_super_categorie.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-        'CriarTabelaMeliSuperCategories' => __DIR__ . '/../..' . '/database/migrations/2019_03_06_234057_criar_tabela_meli_categories.php',
+        'CriarTabelaMeliSuperCategories' => __DIR__ . '/../..' . '/database/migrations/2019_03_06_234057_criar_tabela_meli_super_categories.php',
+        'CriarTabelaMelicategoriessettings' => __DIR__ . '/../..' . '/database/migrations/2019_03_21_235559_criar_tabela_melicategoriessettings.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

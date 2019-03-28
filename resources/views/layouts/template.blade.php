@@ -85,7 +85,7 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="MeliSuperCategories">
+                            <a class="nav-link rounded-bottom" href="MeliCategories">
                                 Ver Categorias
                             </a>                                
                         </li>    

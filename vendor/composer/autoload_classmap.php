@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColunasSuperCategorie' => $baseDir . '/database/migrations/2019_03_21_233842_add_colunas_super_categorie.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-    'CriarTabelaMeliSuperCategories' => $baseDir . '/database/migrations/2019_03_06_234057_criar_tabela_meli_categories.php',
+    'CriarTabelaMeliSuperCategories' => $baseDir . '/database/migrations/2019_03_06_234057_criar_tabela_meli_super_categories.php',
+    'CriarTabelaMelicategoriessettings' => $baseDir . '/database/migrations/2019_03_21_235559_criar_tabela_melicategoriessettings.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
