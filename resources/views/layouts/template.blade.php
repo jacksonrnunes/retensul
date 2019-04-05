@@ -31,12 +31,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="orcamento/add">
+                            <a class="nav-link rounded-bottom" href="{{url('orcamento/add')}}">
                                 Incluir Orçamento
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="orcamento/listar">
+                            <a class="nav-link rounded-bottom" href="{{url('orcamento/listar')}}">
                                 Ver Orçamentos
                             </a>
                         </li>
@@ -49,12 +49,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="pedido/add">
+                            <a class="nav-link rounded-bottom" href="{{url('pedido/add')}}">
                                 Incluir Pedido
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="pedido/listar">
+                            <a class="nav-link rounded-bottom" href="{{url('pedido/listar')}}">
                                 Ver Pedidos
                             </a>
                         </li>
@@ -67,12 +67,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="compras/listar_produtos">
+                            <a class="nav-link rounded-bottom" href="{{url('compras/listar_produtos')}}">
                                 Listar Produtos
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="compras/listar">
+                            <a class="nav-link rounded-bottom" href="{{url('compras/listar')}}">
                                 Ver Compras
                             </a>
                         </li>
