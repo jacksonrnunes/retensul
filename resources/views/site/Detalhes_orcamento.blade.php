@@ -8,6 +8,7 @@
             <th width-max="500px" nowrap='nowrap'>Descricao Produto</th>
             <th>Marca Produto</th>
             <th>QT</th>
+            <th>Un</th>
             <th>Valor Unit.</th>
             <th>Valor Total</th>
             <th>Preco Lista</th>
@@ -25,6 +26,7 @@
             <td width-max="500px" nowrap='nowrap'>{{$item_orcamento->tb_orcamento_itens_descricao_produto}}</td>
             <td nowrap='nowrap'>{{$item_orcamento->tb_orcamento_itens_marca_produto}}</td>
             <td nowrap='nowrap'>{{$item_orcamento->tb_orcamento_itens_qt_produto}}</td>
+            <td nowrap='nowrap'>{{$item_orcamento->tb_orcamento_itens_un}}</td>
             <td nowrap='nowrap'>R$ {{number_format($item_orcamento->tb_orcamento_itens_valor_unit_produto,2,",",".")}}</td>
             <td nowrap='nowrap'>R$ {{number_format($item_orcamento->tb_orcamento_itens_valor_total_produto,2,",",".")}}</td>
             <td nowrap='nowrap'>R$ {{number_format($item_orcamento->tb_orcamento_itens_preco_lista,2,",",".")}}</td>

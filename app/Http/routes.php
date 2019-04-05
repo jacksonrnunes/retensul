@@ -21,13 +21,20 @@ Route::get('/orcamento/add', 'Painel\Tb_orcamentoController@create');
 Route::get('/orcamento/listar', 'Painel\Tb_orcamentoController@index');
 Route::get('/orcamento/editar/{id}', 'Painel\Tb_orcamentoController@edit');
 Route::get('/orcamento/responder/{id}', 'Painel\Tb_orcamentoController@responder');
+Route::get('/orcamento/imprimir/{id}', 'Painel\Tb_orcamentoController@imprimir');
 Route::get('/orcamento/responder/produtos/buscar/tipo/{tipo}/div/{div}/json/{dados}', 'Painel\ProdutosController@buscar');
 Route::post('/orcamento/editar/{id}/save', 'Painel\Tb_orcamentoController@update')->name('orcamento.update');
 Route::get('/orcamento/editar/produtos/buscar/tipo/{tipo}/div/{div}/json/{dados}', 'Painel\ProdutosController@buscar');
 Route::get('/orcamento/editar/produtos/buscar/tipo/{tipo}/div/{div}', 'Painel\ProdutosController@buscar');
 Route::get('/orcamento/editar/produtos/buscar/tipo/{tipo}/json/{json}', 'Painel\ProdutosController@buscar');
+Route::get('/orcamento/editar/produtos/buscar/tipo/{tipo}/div/{div}/json/{dados}', 'Painel\ProdutosController@buscar');
+
 Route::get('/orcamento/editar/clientes/buscar/tipo/{tipo}/json/{json}', 'Painel\PessoasController@buscar');
 Route::get('/orcamento/editar/clientes/buscar/tipo/{tipo}/div/{div}', 'Painel\PessoasController@buscar');
+Route::get('/orcamento/editar/planos/buscar/tipo/{tipo}/div/{div}', 'Painel\PlanospagamentoController@buscar');
+Route::get('/orcamento/editar/planos/buscar/tipo/{tipo}/json/{json}', 'Painel\PlanospagamentoController@buscar');
+
+
 Route::get('/orcamento/detalhes/{id}', 'Painel\Tb_orcamento_itensController@show');
 Route::get('/orcamento/deletar/{id}', 'Painel\Tb_orcamentoController@destroy');
 Route::get('/orcamento/incluir', 'Painel\Tb_orcamentoController@create');

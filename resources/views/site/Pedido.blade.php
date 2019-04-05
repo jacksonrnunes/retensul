@@ -103,7 +103,7 @@ use retensul\Models\Pessoas;
               @endif
               <td align='center' nowrap='nowrap'>{{$pedido->tb_pedido_id}}</td>
               <?php $nome_cliente = DB::connection('odbc')->select("select * from pessoas where id = $pedido->tb_pedido_id_cliente");?>
-              <td nowrap='nowrap'>{{$pedido->tb_pedido_id_cliente}} - {{$nome_cliente[0]->Nome}}</td>
+              <td nowrap='nowrap'>{{$pedido->tb_pedido_id_cliente}} - {{utf8_encode($nome_cliente[0]->Nome)}}</td>
               <td nowrap='nowrap'>{{$pedido->tb_pedido_contato}}</td>
               <?php $plano = DB::connection('odbc')->select("select * from planos where id = $pedido->tb_pedido_id_plano");?>
               <td nowrap='nowrap'>{{$pedido->tb_pedido_id_plano}} - {{$plano[0]->Descricao}}</td>

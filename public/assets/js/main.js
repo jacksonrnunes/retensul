@@ -47,14 +47,14 @@ function ajax_parametros(url,div, dados, tipo, type, datatype)
 }
 function pesquisa_cliente()
 {
-   var url="/testelaravel/public/orcamento/clientes/buscar/tipo/resultado/json/";
+   var url="clientes/buscar/tipo/resultado/json/";
    var div="#resultado_busca_cliente";
    var dados = JSON.stringify($('#busca_cliente').serializeArray());
    ajax_parametros(url+dados, div, '', '');
 }
 function pesquisa_produto()
 {
-   var url="/testelaravel/public/orcamento/produtos/buscar/tipo/resultado/json/";
+   var url="produtos/buscar/tipo/resultado/json/";
    var div="#resultado_busca_produto";
    var dados = JSON.stringify($('#dados_do_produto').serializeArray());
    ajax_parametros(url+dados, div, '', '');
@@ -151,7 +151,7 @@ function deletar_orcamento(id)
 function chama_nj(nome_janela, largura, altura)
 {
     try{
-      oJan2 = window.open(nome_janela, nome_janela, 'height='+altura+', width='+largura);
+      oJan2 = window.open('/retensul/retensul/public/'+nome_janela, nome_janela, 'height='+altura+', width='+largura);
     }
     catch (e)
     {
@@ -569,8 +569,23 @@ $(document).on('click', '#deletar_orcamento', function () {
             alert("Não existe Orcamento selecionado!!");
     }
 });
+$(document).on('click', '#imprimir_orcamento', function () {
+    var verifica = false;
+    $(".active").find('td').each(function(index, value) {
+           if(index===2){
+               chama_nj('orcamento/imprimir/'+value.innerHTML,capta_width(),captaheight());
+               //(value.innerHTML)
+               verifica=true;
+           }
+        });
+    
+    if (verifica===false)
+    {
+            alert("Não existe Orcamento selecionado!!");
+    }
+});
 $(document).on('click', '#incluir_orcamento', function () {
-    chama_nj('incluir',capta_width(),captaheight());
+    chama_nj('orcamento/incluir',capta_width(),captaheight());
 });
 $(document).on('click', '#ver_categoria', function () {
     chama_nj('MeliCategories',capta_width(),captaheight());
@@ -593,7 +608,7 @@ $(document).on('click', '#busca_cliente_orcamento', function (){
     ajax_parametros('clientes/buscar/tipo/pesquisa/div/buscar_cliente','#corpo', '', '', 'get', 'html');
 });
 $(document).on('change', '#id_cliente', function () {
-    var url="/testelaravel/public/orcamento/clientes/buscar/tipo/blur/json/";
+    var url="clientes/buscar/tipo/blur/json/";
     var div="#retorno_cliente_blur";
     var dados = $("#id_cliente").val();
     ajax_parametros(url+dados, div, '', '');
@@ -604,7 +619,7 @@ $(document).on('click', '#busca_plano', function (){
     ajax_parametros('planos/buscar/tipo/pesquisa/div/buscar_plano','#corpo', '', '', 'get', 'html');
 });
 $(document).on('change', '#id_plano_pagamento', function () {
-    var url="/testelaravel/public/orcamento/planos/buscar/tipo/blur/json/";
+    var url="planos/buscar/tipo/blur/json/";
     var div="#retorno_plano_blur";
     var dados = $("#id_plano_pagamento").val();
     ajax_parametros(url+dados, div, '', '');  
@@ -621,14 +636,14 @@ $(document).on('click', '#busca_produto_referencia', function (){
 });
 
 $(document).on('change', '#id_produto', function () {
-    var url="/testelaravel/public/orcamento/produtos/buscar/tipo/blur/json/";
+    var url="produtos/buscar/tipo/blur/json/";
     var div="#retorno_produto_blur";
     var dados = $("#id_produto").val();
     ajax_parametros(url+dados, div, '', '');
     $("#preco_unit_produto").focus();
 });
 $(document).on('change', '#referencia_produto',function () {
-    var url="/testelaravel/public/orcamento/produtos/buscar/tipo/blurref/json/";
+    var url="produtos/buscar/tipo/blurref/json/";
     var div="#retorno_produto_blur";
     var dados = $("#referencia_produto").val();
     ajax_parametros(url+dados, div, '', '');  
@@ -727,7 +742,7 @@ $(document).on("click", "#gravar_orcamento", function () {
 $(document).on('click', '#editar_orcamento', function () {
     $(".active").find('td').each(function(index, value) {
            if(index===2){
-               chama_nj('editar/'+value.innerHTML,capta_width(),captaheight());
+               chama_nj('orcamento/editar/'+value.innerHTML,capta_width(),captaheight());
            }
         });
 });
