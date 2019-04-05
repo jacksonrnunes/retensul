@@ -18,6 +18,21 @@ use retensul\Models\MeliSellerContact;
 use retensul\Models\MeliShippingProfile;
 use retensul\Models\MeliSimpleShipping;
 use retensul\Models\MeliVipSubdomain;
+use retensul\Models\MeliCatSetBuyMod;
+use retensul\Models\MeliCatSetCur;
+use retensul\Models\MeliCurrencies;
+use retensul\Models\MeliItemConditions;
+use retensul\Models\MeliCatSetIteCon;
+use retensul\Models\MeliMirrorSlaveCategories;
+use retensul\Models\MeliCatSetMirSlaCat;
+use retensul\Models\MeliRestrictions;
+use retensul\Models\MeliCatSetRes;
+use retensul\Models\MeliShippingModes;
+use retensul\Models\MeliCatSetShiMod;
+use retensul\Models\MeliShippingOptions;
+use retensul\Models\MeliCatSetShiOpt;
+use retensul\Models\MeliTags;
+use retensul\Models\MeliCatSetTag;
 
 class MeliCategoriesController extends Controller
 {
@@ -43,22 +58,17 @@ class MeliCategoriesController extends Controller
         $result = $meli->get('https://api.mercadolibre.com/sites/MLB/categories'); 
         $result = $result["body"];
         $result = json_decode(json_encode($result), True);
-        $MeliCategoriesPrincipal = MeliCategories::where('meli_categorie_id_parent','=','')->orderBy('meli_categorie_name')->get();
-        return view('site.MeliCategories', compact('result', 'MeliCategoriesPrincipal'));
+        $MeliCategoriesPrincipal = MeliCategories::where('meli_categorie_id_parent','=',null)->orderBy('meli_categorie_name')->get();
+        $tipo = 'principal';
+        return view('site.MeliCategories', compact('result', 'MeliCategoriesPrincipal', 'tipo'));
     }
     public function buscar($id_categorie)
     {
         $meli = new Meli('5147268795692492', 'hZ9XuZJnAStRnmoIATKTInw7JCo8HHkn');
         $result = $meli->get("https://api.mercadolibre.com/categories/".$id_categorie); 
-        //print_r($result);
         $result = $result["body"];
-        
-        //$result = $result[0];
         $result = json_decode(json_encode($result), True);
         $result = $result["children_categories"];
-        //$result = objectToArray($result);
-        //$result = $result["name"];
-        //print_r($result);
         $tipo = 'retorno';
         return view('site.MeliCategories', compact('result', 'tipo'));
     }
@@ -134,37 +144,47 @@ class MeliCategoriesController extends Controller
         for ($i=0;$i<count($request->id_categorie);$i++)
         {
             $MeliCategorie = new MeliCategories;
-            //echo ($i)."<br/>";
-            //echo $request."<br/>";
+            $meli = new Meli('5147268795692492', 'hZ9XuZJnAStRnmoIATKTInw7JCo8HHkn');
             $MeliCategorie->meli_categorie_id_original = $request->id_categorie[$i];
             $MeliCategorie->meli_categorie_name = $request->descricao_categorie[$i];
             $MeliCategorie->meli_categorie_url_api = "https://api.mercadolibre.com/categories/".$request->id_categorie[$i];
-            
-            $meli = new Meli('5147268795692492', 'hZ9XuZJnAStRnmoIATKTInw7JCo8HHkn');
             $result = $meli->get($MeliCategorie->meli_categorie_url_api);
             $result = $result["body"];
+            //print_r($result);
             $result = json_decode(json_encode($result), True);
-            print_r($result);
-            echo $result['id']."<br/>";
-            echo $result['name']."<br/>";
-            echo $result['settings']['items_reviews_allowed']."<br/>";
             $MeliCategorie->meli_categorie_picture = $result['picture'];
             $MeliCategorie->meli_categorie_permalink = $result['permalink'];
             $MeliCategorie->meli_categorie_total_items_in_this_category = $result['total_items_in_this_category'];
             $MeliCategorie->meli_categorie_attribute_types = $result['attribute_types'];
             $MeliCategorie->meli_categorie_meta_categ_id = $result['meta_categ_id'];
             $MeliCategorie->meli_categorie_attributable =  $result['attributable'];
-            
+            //$MeliCategorie->meli_categorie_id_parent = 
             $verifica = $MeliCategorie->conferir();
             if($verifica == false)
             {
                 $MeliCategorie->save();
             }
-            
             $meliCategorieSettings = new MeliCategoriesSettings();
+            
+            //Salvar Meli Categorie ID
+            if(empty($MeliCategorie->meli_categorie_id))
+            {
+                $meliCategorieSettings->meli_categorie_id = $MeliCategorie->returnId();
+            }
+            else
+            {
+                $meliCategorieSettings->meli_categorie_id = $MeliCategorie->meli_categorie_id;
+            }
             $meliCategorieSettings->meli_categorie_setting_adult_content = $result['settings']['adult_content'];
             $meliCategorieSettings->meli_categorie_setting_buying_allowed = $result['settings']['buying_allowed'];
-            $meliCategorieSettings->meli_categorie_setting_catalog_domain = $result['settings']['catalog_domain'];
+            if(empty($result['settings']['catalog_domain']))
+            {
+                $meliCategorieSettings->meli_categorie_setting_catalog_domain = "Não Especificado";
+            }
+            else
+            {
+                $meliCategorieSettings->meli_categorie_setting_catalog_domain = $result['settings']['catalog_domain'];
+            }
             $meliCategorieSettings->meli_categorie_setting_fragile = $result['settings']['fragile'];
             
             //Salvar Meli Items Reviews Allowed
@@ -329,26 +349,6 @@ class MeliCategoriesController extends Controller
                 $meliVipSubdomain->meli_vip_subdomain_id = $meliVipSubdomain->returnId();
             }
             $meliCategorieSettings->meli_vip_subdomain_id = $meliVipSubdomain->meli_vip_subdomain_id;
-           
-            //echo $meliVipSubdomain->meli_vip_subdomain_id."<br/>";
-            //echo $meliCategorieSettings->meli_vip_subdomain_id."<br/>";
-            //echo $meliVipSubdomain->meli_vip_subdomain_name."<br/>";
-            //$MeliCategorie->Settings()->buying_allowed = $result['settings']['buying_allowed'];
-            //$MeliCategorie->Settings()-> = $result['settings']['buying_modes'][0]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['currencies'][0]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['item_conditions'][0]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['item_conditions'][1]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['item_conditions'][2]."<br/>";
-            //echo $result['settings']['mirror_slave_categories']."<br/>";
-            //echo $result['settings']['restrictions']."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['shipping_modes'][0]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['shipping_modes'][1]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['shipping_modes'][2]."<br/>";
-            //$MeliCategorie->Settings()-> $result['settings']['shipping_options'][0]."<br/>";
-            //echo $result['settings']['tags']."<br/>";
-            
-            
-            
             $meliCategorieSettings->meli_categorie_setting_max_description_length = $result['settings']['max_description_length'];
             $meliCategorieSettings->meli_categorie_setting_max_pictures_per_item = $result['settings']['max_pictures_per_item'];
             $meliCategorieSettings->meli_categorie_setting_max_pictures_per_item_var = $result['settings']['max_pictures_per_item_var'];
@@ -362,8 +362,14 @@ class MeliCategoriesController extends Controller
             {
                 $meliCategorieSettings->meli_categorie_setting_maximum_price = $result['settings']['maximum_price'];
             }
-            
-            $meliCategorieSettings->meli_categorie_setting_minimum_price = $result['settings']['minimum_price'];
+            if(empty($result['settings']['minimum_price']))
+            {
+                $meliCategorieSettings->meli_categorie_setting_minimum_price = "Não especificado";
+            }
+            else
+            {
+                $meliCategorieSettings->meli_categorie_setting_minimum_price = $result['settings']['minimum_price'];
+            }
             if(empty($result['settings']['mirror_category']))
             {
                 $meliCategorieSettings->meli_categorie_setting_mirror_category = "Não especificado";
@@ -385,14 +391,11 @@ class MeliCategoriesController extends Controller
             if($result['settings']['price'] == 'required')
             {
                 $meliCategorieSettings->meli_categorie_setting_price = true;
-                echo $result['settings']['price']." true<br/>";
             }
             else
             {
                 $meliCategorieSettings->meli_categorie_setting_price = false;
-                echo $result['settings']['price']." false<br/>";
             }
-            echo $result['settings']['price']." nada<br/>";
             $meliCategorieSettings->meli_categorie_setting_rounded_address = $result['settings']['rounded_address'];
             if(empty($result['settings']['show_contact_information']))
             {
@@ -419,17 +422,205 @@ class MeliCategoriesController extends Controller
             }
             else
             {
-                $meliCategorieSettings->vertical = $result['settings']['vertical'];
+                $meliCategorieSettings->meli_categorie_setting_vertical = $result['settings']['vertical'];
             }
-            $meliCategorieSettings->save();
-            
-            
-            
-            print_r($MeliCategorie);        
+            $confereCategorieId = $meliCategorieSettings->Confere_Categorie_Id();
+            if($confereCategorieId == TRUE)
+            {
+                $meliCategorieSettings->update();
+            }
+            else
+            {
+                $meliCategorieSettings->save();
+            }
+            //Salvar Meli Buying Modes
+            for($j=0;$j<count($result['settings']['buying_modes']);$j++)
+            {
+                $meliBuyingModes = new MeliBuyingModes();
+                $meliBuyingModes->meli_buying_mode_name = $result['settings']['buying_modes'][$j];
+                $confereBuyigModes = $meliBuyingModes->conferir();
+                if($confereBuyigModes == TRUE)
+                {
+                    $meliBuyingModes->meli_buying_mode_id = $meliBuyingModes->returnId();
+                }
+                else
+                {
+                    $meliBuyingModes->save();
+                }
+                $meliCatSetBuyMod = new MeliCatSetBuyMod();
+                $meliCatSetBuyMod->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetBuyMod->meli_buying_mode_id = $meliBuyingModes->meli_buying_mode_id;
+                $confereMeliCatSetBuyMod = $meliCatSetBuyMod->conferir();
+                if($confereMeliCatSetBuyMod == false)
+                {
+                    $meliCatSetBuyMod->save();
+                }
+            }
+            //Salvar Currencies
+            for($j=0;$j<count($result['settings']['currencies']);$j++)
+            {
+                $meliCurrencies = new MeliCurrencies();
+                $meliCurrencies->meli_currencie_name = $result['settings']['currencies'][$j];
+                $confereCurrencie = $meliCurrencies->conferir();
+                if($confereCurrencie == TRUE)
+                {
+                    $meliCurrencies->meli_currencie_id = $meliCurrencies->returnId();
+                }
+                else
+                {
+                    $meliCurrencies->save();
+                }
+                $meliCatSetCur = new MeliCatSetCur();
+                $meliCatSetCur->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetCur->meli_currencie_id = $meliCurrencies->meli_currencie_id;
+                $confereMeliCatSetCur = $meliCatSetCur->conferir();
+                if($confereMeliCatSetCur == false)
+                {
+                    $meliCatSetCur->save();
+                }
+            }
+            //Salvar Item Conditions
+            for($j=0;$j<count($result['settings']['item_conditions']);$j++)
+            {
+                $meliItemConditions = new MeliItemConditions();
+                $meliItemConditions->meli_item_condition_name = $result['settings']['item_conditions'][$j];
+                $confereItemConditions = $meliItemConditions->conferir();
+                if($confereItemConditions == TRUE)
+                {
+                    $meliItemConditions->meli_item_condition_id = $meliItemConditions->returnId();
+                }
+                else
+                {
+                    $meliItemConditions->save();
+                }
+                $meliCatSetIteCon = new MeliCatSetIteCon();
+                $meliCatSetIteCon->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetIteCon->meli_item_condition_id = $meliItemConditions->meli_item_condition_id;
+                $confereCatSetIteCon = $meliCatSetIteCon->conferir();
+                if($confereCatSetIteCon == false)
+                {
+                    $meliCatSetIteCon->save();
+                }   
+            }
+            //Salvar Mirror Slave Categorie
+            for($j=0;$j<count($result['settings']['mirror_slave_categories']);$j++)
+            {
+                $meliMirrorSlaveCategories = new MeliMirrorSlaveCategories();
+                $meliMirrorSlaveCategories->meli_mirror_slave_categorie_name = $result['settings']['mirror_slave_categories'][$j];
+                $confereMirrorSlaveCategories = $meliMirrorSlaveCategories->conferir();
+                if($confereMirrorSlaveCategories == TRUE)
+                {
+                    $meliMirrorSlaveCategories->meli_mirror_slave_categorie_id = $meliMirrorSlaveCategories->returnId();
+                }
+                else
+                {
+                    $meliMirrorSlaveCategories->save();
+                }
+                $meliCatSetMirSlaCat = new MeliCatSetMirSlaCat();
+                $meliCatSetMirSlaCat->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetMirSlaCat->meli_mirror_slave_categorie_id = $meliMirrorSlaveCategories->meli_mirror_slave_categorie_id;
+                $confereCatSetMirSlaCat = $meliCatSetMirSlaCat->conferir();
+                if($confereCatSetMirSlaCat == false)
+                {
+                    $meliCatSetMirSlaCat->save();
+                }
+            }
+            //Salvar Restrictions
+            for($j=0;$j<count($result['settings']['restrictions']);$j++)
+            {
+                $meliRestrictions = new MeliRestrictions();
+                $meliRestrictions->meli_restriction_name = $result['settings']['restrictions'][$j];
+                $confereRestrictions = $meliRestrictions->conferir();
+                if($confereRestrictions == TRUE)
+                {
+                    $meliRestrictions->meli_restriction_id = $meliRestrictions->returnId();
+                }
+                else
+                {
+                    $meliRestrictions->save();
+                }
+                $meliCatSetRes = new MeliCatSetRes();
+                $meliCatSetRes->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetRes->meli_restriction_id = $meliRestrictions->meli_restriction_id;
+                $confereCatSetRes = $meliCatSetRes->conferir();
+                if($confereCatSetRes == false)
+                {
+                    $meliCatSetRes->save();
+                }
+            }
+            //Salvar Shipping Modes
+            for($j=0;$j<count($result['settings']['shipping_modes']);$j++)
+            {
+                $meliShippingModes = new MeliShippingModes();
+                $meliShippingModes->meli_shipping_mode_name = $result['settings']['shipping_modes'][$j];
+                $confereShippingModes = $meliShippingModes->conferir();
+                if($confereShippingModes == TRUE)
+                {
+                    $meliShippingModes->meli_shipping_mode_id = $meliShippingModes->returnId();
+                }
+                else
+                {
+                    $meliShippingModes->save();
+                }
+                $meliCatSetShiMod = new MeliCatSetShiMod();
+                $meliCatSetShiMod->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetShiMod->meli_shipping_mode_id = $meliShippingModes->meli_shipping_mode_id;
+                $confereCatSetShiMod = $meliCatSetShiMod->conferir();
+                if($confereCatSetShiMod == false)
+                {
+                    $meliCatSetShiMod->save();
+                }
+            }
+            //Salvar Shipping Options
+            for($j=0;$j<count($result['settings']['shipping_options']);$j++)
+            {
+                $meliShippingOptions = new MeliShippingOptions();
+                $meliShippingOptions->meli_shipping_options_name = $result['settings']['shipping_options'][$j];
+                $confereShippingOptions = $meliShippingOptions->conferir();
+                if($confereShippingOptions == TRUE)
+                {
+                    $meliShippingOptions->meli_shipping_options_id = $meliShippingOptions->returnId();
+                }
+                else
+                {
+                    $meliShippingOptions->save();
+                }
+                $meliCatSetShiOpt = new MeliCatSetShiOpt();
+                $meliCatSetShiOpt->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetShiOpt->meli_shipping_options_id = $meliShippingOptions->meli_shipping_options_id;
+                $confereCatSetShiOpt = $meliCatSetShiOpt->conferir();
+                if($confereCatSetShiOpt == false)
+                {
+                    $meliCatSetShiOpt->save();
+                }
+            }
+            //Salvar Tags
+            for($j=0;$j<count($result['settings']['tags']);$j++)
+            {
+                $meliTags = new MeliTags();
+                $meliTags->meli_tag_name = $result['settings']['tags'][$j];
+                $confereTags = $meliTags->conferir();
+                if($confereTags == TRUE)
+                {
+                    $meliTags->meli_tag_id = $meliTags->returnId();
+                }
+                else
+                {
+                    $meliTags->save();
+                }
+                $meliCatSetTag = new MeliCatSetTag();
+                $meliCatSetTag->meli_categorie_setting_id = $meliCategorieSettings->returnId();
+                $meliCatSetTag->meli_tag_id = $meliTags->meli_tag_id;
+                $confereCatSetTag = $meliCatSetTag->conferir();
+                if($confereCatSetTag == false)
+                {
+                    $meliCatSetTag->save();
+                }
+            }
             $cont++;
         }
-        //return redirect(route('MeliSuperCategories.buscar'));
-        //return redirect()->action('Painel\MeliSuperCategoriesController@buscar')->with('mesage', 'Salvo Com Sucesso');
-        //View::make('/Painel/MeliSuperCategoriesController@buscar');
+        $success = $cont.' categorias Salvas Com Sucesso!';
+        return redirect()->action('Painel\MeliCategoriesController@buscarPrincipal')->with(compact('success'));
     }
 }
+

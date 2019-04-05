@@ -12,7 +12,6 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/estilo.css')}}">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:.0rem 1rem!important;">
@@ -85,8 +84,8 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="MeliCategories">
-                                Ver Categorias
+                            <a class="nav-link rounded-bottom" href="MercadoLivre">
+                                Ver Mercado Livre
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">

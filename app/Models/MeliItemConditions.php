@@ -4,23 +4,23 @@ namespace retensul\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MeliCategories extends Model
+class MeliItemConditions extends Model
 {
     //
     protected $connection = 'mysql';
-    protected $table = 'meli_categories';
-    protected $primaryKey = 'meli_categorie_id';
+    protected $table = 'meli_item_conditions';
+    protected $primaryKey = 'meli_item_condition_id';
     public $timestamps = false;
-    public function Settings()
+    /*public function MeliCatSetBuyMod()
     {
-        return $this->hasOne(MeliCategoriesSettings::class, 'meli_categorie_id');
-    }
+        return $this->belongsTo(MeliCatSetBuyMod::class, 'meli_buying_mode_id');
+    }*/
     public function conferir()
     {
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliItemConditions::where('meli_item_condition_name','=',$this->meli_item_condition_name)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
@@ -40,12 +40,12 @@ class MeliCategories extends Model
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliItemConditions::where('meli_item_condition_name','=',$this->meli_item_condition_name)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
                 {
-                    $return = $each_rs->meli_categorie_id;
+                    $return = $each_rs->meli_item_condition_id;
                 }
             }
             return $return;

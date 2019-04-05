@@ -3,16 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/MAMP/htdocs/retensul/retensul/database/migrations/2019_03_21_233842_add_colunas_super_categorie.php</file>
-            <file>file:/Applications/MAMP/htdocs/retensul/retensul/app/Http/Controllers/Painel/MeliSuperCategoriesController.php</file>
-            <file>file:/Applications/MAMP/htdocs/retensul/retensul/resources/views/site/MeliSuperCategories.blade.php</file>
+            <file>file:/Applications/MAMP/htdocs/retensul/retensul/resources/views/layouts/template.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/retensul/retensul/app/Http/Controllers/Painel/MeliCategoriesController.php</file>
             <file>file:/Applications/MAMP/htdocs/retensul/retensul/resources/views/site/MeliCategories.blade.php</file>
             <file>file:/Applications/MAMP/htdocs/retensul/retensul/public/assets/js/jquery.js</file>
-            <file>file:/Applications/MAMP/htdocs/retensul/retensul/database/migrations/2019_03_06_234057_criar_tabela_meli_super_categories.php</file>
             <file>file:/Applications/MAMP/htdocs/retensul/retensul/public/assets/js/main.js</file>
             <file>file:/Applications/MAMP/htdocs/retensul/retensul/app/Http/routes.php</file>
-            <file>file:/Applications/MAMP/htdocs/retensul/retensul/database/migrations/2019_03_21_235559_criar_tabela_melicategoriessettings.php</file>
         </group>
     </open-files>
 </project-private>

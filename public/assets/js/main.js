@@ -572,6 +572,9 @@ $(document).on('click', '#deletar_orcamento', function () {
 $(document).on('click', '#incluir_orcamento', function () {
     chama_nj('incluir',capta_width(),captaheight());
 });
+$(document).on('click', '#ver_categoria', function () {
+    chama_nj('MeliCategories',capta_width(),captaheight());
+});
 /*$(document).on('click', '#incluir_produto_orcamento', function () {
     novo_modal('corpo','incluir_produto','900','600', '9100', '9000', 'produtos/buscar/tipo/janela/div/incluir_produto');
 });*/
@@ -775,8 +778,17 @@ $(document).on('click', '#cadastrar_categorias', function () {
 
 $(document).on('click', '.verificar_categoria', function () {
     //alert('/MeliCategories/'+this.id);
+    //$("#div_nivel2").remove;
+    if(($("#div_nivel2").length) > 0)
+    {
+        //alert("haha");
+    }
     ajax_parametros('MeliCategories/'+this.id,"#div_nivel2", '', 'add', 'get', 'html');
 
+});
+
+$(document).on('click', '.close', function () {
+    $( "div" ).remove( ".alert" ); 
 });
 
 

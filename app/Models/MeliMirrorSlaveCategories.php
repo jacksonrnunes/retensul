@@ -4,23 +4,19 @@ namespace retensul\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MeliCategories extends Model
+class MeliMirrorSlaveCategories extends Model
 {
     //
     protected $connection = 'mysql';
-    protected $table = 'meli_categories';
-    protected $primaryKey = 'meli_categorie_id';
+    protected $table = 'meli_mirror_slave_categories';
+    protected $primaryKey = 'meli_mirror_slave_categorie_id';
     public $timestamps = false;
-    public function Settings()
-    {
-        return $this->hasOne(MeliCategoriesSettings::class, 'meli_categorie_id');
-    }
     public function conferir()
     {
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliMirrorSlaveCategories::where('meli_mirror_slave_categorie_name','=',$this->meli_mirror_slave_categorie_name)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
@@ -40,12 +36,12 @@ class MeliCategories extends Model
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliMirrorSlaveCategories::where('meli_mirror_slave_categorie_name','=',$this->meli_mirror_slave_categorie_name)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
                 {
-                    $return = $each_rs->meli_categorie_id;
+                    $return = $each_rs->meli_mirror_slave_categorie_id;
                 }
             }
             return $return;

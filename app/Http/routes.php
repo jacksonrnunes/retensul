@@ -54,7 +54,7 @@ Route::get('/MeliCategories', 'Painel\MeliCategoriesController@buscarPrincipal')
 Route::get('/MeliCategories/{categorie}', 'Painel\MeliCategoriesController@buscar');
 Route::post('/MeliCategories/save', 'Painel\MeliCategoriesController@salvar');
 
-
+Route::get('/MercadoLivre', 'Painel\MercadoLivreController@index');
 
 
 

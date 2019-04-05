@@ -4,28 +4,31 @@ namespace retensul\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MeliCategories extends Model
+class MeliCatSetShiMod extends Model
 {
     //
     protected $connection = 'mysql';
-    protected $table = 'meli_categories';
-    protected $primaryKey = 'meli_categorie_id';
+    protected $table = 'meli_cat_set_shi_mod';
+    protected $primaryKey = 'meli_cat_set_shi_mod_id';
     public $timestamps = false;
-    public function Settings()
+    /*public function MeliCatSetBuyMod()
     {
-        return $this->hasOne(MeliCategoriesSettings::class, 'meli_categorie_id');
-    }
+        return $this->belongsTo(MeliCatSetBuyMod::class, 'meli_buying_mode_id');
+    }*/
     public function conferir()
     {
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliCatSetShiMod::where('meli_categorie_setting_id','=',$this->meli_categorie_setting_id)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
                 {
-                    $return = true;
+                    if($each_rs->meli_shipping_mode_id == $this->meli_shipping_mode_id)
+                    {
+                        $return = true;
+                    }
                 }
             }
             return $return;
@@ -35,17 +38,17 @@ class MeliCategories extends Model
             echo $e->getMessage();
         }
     }
-    public function returnId()
+    /*public function returnId()
     {
         try
         {
             $return = false;
-            $rs = MeliCategories::where('meli_categorie_id_original','=',$this->meli_categorie_id_original)->get(); 
+            $rs = MeliBuyingModes::where('meli_buying_mode_name','=',$this->meli_buying_mode_name)->get(); 
             foreach ($rs as $each_rs)
             {
                 if(!empty($each_rs))
                 {
-                    $return = $each_rs->meli_categorie_id;
+                    $return = $each_rs->meli_buying_mode_id;
                 }
             }
             return $return;
@@ -54,5 +57,5 @@ class MeliCategories extends Model
         {
             echo $e->getMessage();
         }
-    }
+    }*/
 }

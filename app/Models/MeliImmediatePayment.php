@@ -45,7 +45,7 @@ class MeliImmediatePayment extends Model
             {
                 if(!empty($each_rs))
                 {
-                    $return = $each_rs->meli_immediate_payment_name;
+                    $return = $each_rs->meli_immediate_payment_id;
                 }
             }
             return $return;
