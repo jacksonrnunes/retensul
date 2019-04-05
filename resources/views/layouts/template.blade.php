@@ -12,7 +12,6 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/estilo.css')}}">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:.0rem 1rem!important;">
@@ -31,12 +30,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('orcamento/add')}}">
+                            <a class="nav-link rounded-bottom" href="orcamento/add">
                                 Incluir Orçamento
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('orcamento/listar')}}">
+                            <a class="nav-link rounded-bottom" href="orcamento/listar">
                                 Ver Orçamentos
                             </a>
                         </li>
@@ -49,12 +48,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('pedido/add')}}">
+                            <a class="nav-link rounded-bottom" href="pedido/add">
                                 Incluir Pedido
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('pedido/listar')}}">
+                            <a class="nav-link rounded-bottom" href="pedido/listar">
                                 Ver Pedidos
                             </a>
                         </li>
@@ -67,12 +66,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('compras/listar_produtos')}}">
+                            <a class="nav-link rounded-bottom" href="compras/listar_produtos">
                                 Listar Produtos
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="{{url('compras/listar')}}">
+                            <a class="nav-link rounded-bottom" href="compras/listar">
                                 Ver Compras
                             </a>
                         </li>
@@ -85,8 +84,8 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="MeliSuperCategories">
-                                Ver Categorias
+                            <a class="nav-link rounded-bottom" href="MercadoLivre">
+                                Ver Mercado Livre
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
