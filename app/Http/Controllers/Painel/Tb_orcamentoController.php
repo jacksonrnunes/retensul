@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use retensul\Http\Requests;
 use retensul\Models\Tb_orcamento;
-use retensul\Models\Tb_pedido;
 use retensul\Models\Tb_orcamento_itens;
+use retensul\Models\Tb_orcamento_itens_resposta;
+use retensul\Models\Tb_pedido;
 use retensul\Models\Tb_pedido_itens;
 use retensul\Models\Tb_pedido_itens_fornecedores;
 use retensul\Models\Vendedores;
@@ -51,12 +52,14 @@ class Tb_orcamentoController extends Controller
     {
         if($request->tipo == 1)
         {
+            //echo $request;
             $Orcamento = new Tb_orcamento;
             $Orcamento->tb_orcamento_id_cliente = $request->id_cliente;
             $Orcamento->tb_orcamento_contato = $request->contato_cliente;
             $Orcamento->tb_orcamento_telefone = $request->telefone_cliente;
             $Orcamento->tb_orcamento_email = $request->email_cliente;
             $Orcamento->tb_orcamento_data = implode("-",array_reverse(explode("/",$request->data_orcamento)));
+            $Orcamento->tb_orcamento_data = implode("",explode(" ",$Orcamento->tb_orcamento_data));
             $Orcamento->tb_orcamento_id_vendedor = $request->vendedor;
             $Orcamento->tb_orcamento_id_plano = $request->id_plano_pagamento;
             $Orcamento->tb_orcamento_obs = $request->obs_pedido;
@@ -75,12 +78,12 @@ class Tb_orcamentoController extends Controller
                 $OrcamentoItens->tb_orcamento_id = $Orcamento->tb_orcamento_id;
                 $OrcamentoItens->tb_orcamento_itens_seq = $cont;
                 $OrcamentoItens->tb_orcamento_itens_id_produto = $request->id_produto[$i];
-                $OrcamentoItens->tb_orcamento_itens_tipo = $request->tipo_produto[$i];
+                //$OrcamentoItens->tb_orcamento_itens_tipo = $request->tipo_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_referencia_produto = $request->referencia_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_descricao_produto = $request->descricao_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_marca_produto = $request->marca_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_qt_produto = $request->qt_produto[$i];
-                $OrcamentoItens->tb_orcamento_itens_un_produto = $request->un_produto[$i];
+                $OrcamentoItens->tb_orcamento_itens_un = $request->un_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_preco_lista = $request->preco_lista_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_percentual_desconto_produto = $request->desconto_percentual_produto[$i];
                 $OrcamentoItens->tb_orcamento_itens_valor_desconto_produto = $request->desconto_valor_produto[$i];
@@ -183,6 +186,26 @@ class Tb_orcamentoController extends Controller
         return view('Site.Orcamento_add_edit', compact('vendedores', 'tipo', 'orcamento', 'orcamentoItens'));
     }
     
+    public function imprimir($id)
+    {
+        //
+        $Tb_orcamento = new Tb_orcamento;
+        $orcamento = $Tb_orcamento->find($id);
+        $orcamentoResposta = Tb_orcamento::select('*')->where('tb_orcamento_id_principal_ou_resposta', '=', $id)->get();
+        
+        //print_r($orcamentoResposta);
+        //$Tb_orcamento_itens = new Tb_orcamento_itens;
+        $orcamentoItens = Tb_orcamento_itens::select('*')->where('tb_orcamento_id', '=', $id)->get();
+        //$orcamentoRespostaItens = Tb_orcamento_itens_resposta::select('*')->where('tb_orcamento_id_principal', '=', $id)->get();
+
+        //echo $orcamentoItens;
+        $tipo = 'imprimir';
+        $vendedores = DB::connection('odbc')->select("select * from vendedores where id = $orcamento->tb_orcamento_id_vendedor");
+        $cliente = DB::connection('odbc')->select("select * from pessoas where id = $orcamento->tb_orcamento_id_cliente");
+        
+        return view('Site.Orcamento_imprimir', compact('vendedores', 'tipo', 'orcamento', 'orcamentoItens', 'cliente', 'orcamentoResposta', 'orcamentoRespostaItens'));
+    }
+    
     public function responder($id)
     {
         //
@@ -231,12 +254,12 @@ class Tb_orcamentoController extends Controller
             $OrcamentoItens->tb_orcamento_id = $Orcamento->tb_orcamento_id;
             $OrcamentoItens->tb_orcamento_itens_seq = $cont;
             $OrcamentoItens->tb_orcamento_itens_id_produto = $request->id_produto[$i];
-            $OrcamentoItens->tb_orcamento_itens_tipo = $request->tipo_produto[$i];
+            //$OrcamentoItens->tb_orcamento_itens_tipo = $request->tipo_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_referencia_produto = $request->referencia_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_descricao_produto = $request->descricao_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_marca_produto = $request->marca_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_qt_produto = $request->qt_produto[$i];
-            $OrcamentoItens->tb_orcamento_itens_un_produto = $request->un_produto[$i];
+            $OrcamentoItens->tb_orcamento_itens_un = $request->un_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_preco_lista = $request->preco_lista_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_percentual_desconto_produto = $request->desconto_percentual_produto[$i];
             $OrcamentoItens->tb_orcamento_itens_valor_desconto_produto = $request->desconto_valor_produto[$i];

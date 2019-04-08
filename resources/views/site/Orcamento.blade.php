@@ -34,7 +34,7 @@ use retensul\Models\Pessoas;
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link rounded-bottom" href="#" aria-haspopup="true" aria-expanded="false">
+                <a id='imprimir_orcamento' name='imprimir_orcamento' class="nav-link rounded-bottom" href="#" aria-haspopup="true" aria-expanded="false">
                     Imprimir Orcamento
                 </a>
             </li>
@@ -90,7 +90,7 @@ use retensul\Models\Pessoas;
               @endif
               <td align='center' nowrap='nowrap'>{{$orcamento->tb_orcamento_id}}</td>
               @php $nome_cliente = DB::connection('odbc')->select("select * from pessoas where id = $orcamento->tb_orcamento_id_cliente");@endphp
-              <td nowrap='nowrap'>{{$orcamento->tb_orcamento_id_cliente}} - {{$nome_cliente[0]->Nome}}</td>
+              <td nowrap='nowrap'>{{$orcamento->tb_orcamento_id_cliente}} - {{utf8_encode($nome_cliente[0]->Nome)}}</td>
               <td nowrap='nowrap'>{{$orcamento->tb_orcamento_contato}}</td>
               @php $plano = DB::connection('odbc')->select("select * from planos where id = $orcamento->tb_orcamento_id_plano");@endphp
               <td nowrap='nowrap'>{{$orcamento->tb_orcamento_id_plano}} - {{$plano[0]->Descricao}}</td>

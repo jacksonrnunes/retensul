@@ -76,9 +76,12 @@ class ProdutosController extends Controller
                                                                    where produtosprincipal.id = produtosreferencia.id_produto
                                                                      and produtosprincipal.id = $id
                                                                 ORDER BY 2");
-                
-                
                 $div = $json[4]['value'];
+                //print_r($resul_produtos);
+                //$callback = 'utf8_encode';
+                //$resul_produtos2 = array_map($callback, $resul_produtos);
+                //print_r($resul_produtos2);
+                //$resul_produtos = htmlspecialchars($resul_produtos);
                 return view('site.Produtos', compact('tipo', 'resul_produtos', 'div'));
             }
             else

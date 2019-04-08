@@ -7,6 +7,7 @@
 
 function ajax_parametros(url,div, dados, tipo, type, datatype)
 {
+    //alert(tipo);
     if (type === undefined) {
           datatype = 'get';
     }
@@ -25,9 +26,9 @@ function ajax_parametros(url,div, dados, tipo, type, datatype)
         timeout: 5000,    
         success: function(retorno)
         {
-            
           if(tipo === "add")
           {
+              //alert(retorno);
               $(div).append(retorno);
           }
           if(tipo === "delete")
@@ -47,14 +48,14 @@ function ajax_parametros(url,div, dados, tipo, type, datatype)
 }
 function pesquisa_cliente()
 {
-   var url="/testelaravel/public/orcamento/clientes/buscar/tipo/resultado/json/";
+   var url="clientes/buscar/tipo/resultado/json/";
    var div="#resultado_busca_cliente";
    var dados = JSON.stringify($('#busca_cliente').serializeArray());
    ajax_parametros(url+dados, div, '', '');
 }
 function pesquisa_produto()
 {
-   var url="/testelaravel/public/orcamento/produtos/buscar/tipo/resultado/json/";
+   var url="produtos/buscar/tipo/resultado/json/";
    var div="#resultado_busca_produto";
    var dados = JSON.stringify($('#dados_do_produto').serializeArray());
    ajax_parametros(url+dados, div, '', '');
@@ -151,7 +152,7 @@ function deletar_orcamento(id)
 function chama_nj(nome_janela, largura, altura)
 {
     try{
-      oJan2 = window.open(nome_janela, nome_janela, 'height='+altura+', width='+largura);
+      oJan2 = window.open('/retensul/retensul/public/'+nome_janela, nome_janela, 'height='+altura+', width='+largura);
     }
     catch (e)
     {
@@ -569,8 +570,23 @@ $(document).on('click', '#deletar_orcamento', function () {
             alert("Não existe Orcamento selecionado!!");
     }
 });
+$(document).on('click', '#imprimir_orcamento', function () {
+    var verifica = false;
+    $(".active").find('td').each(function(index, value) {
+           if(index===2){
+               chama_nj('orcamento/imprimir/'+value.innerHTML,capta_width(),captaheight());
+               //(value.innerHTML)
+               verifica=true;
+           }
+        });
+    
+    if (verifica===false)
+    {
+            alert("Não existe Orcamento selecionado!!");
+    }
+});
 $(document).on('click', '#incluir_orcamento', function () {
-    chama_nj('incluir',capta_width(),captaheight());
+    chama_nj('orcamento/incluir',capta_width(),captaheight());
 });
 $(document).on('click', '#ver_categoria', function () {
     chama_nj('MeliCategories',capta_width(),captaheight());
@@ -593,7 +609,7 @@ $(document).on('click', '#busca_cliente_orcamento', function (){
     ajax_parametros('clientes/buscar/tipo/pesquisa/div/buscar_cliente','#corpo', '', '', 'get', 'html');
 });
 $(document).on('change', '#id_cliente', function () {
-    var url="/testelaravel/public/orcamento/clientes/buscar/tipo/blur/json/";
+    var url="clientes/buscar/tipo/blur/json/";
     var div="#retorno_cliente_blur";
     var dados = $("#id_cliente").val();
     ajax_parametros(url+dados, div, '', '');
@@ -604,7 +620,7 @@ $(document).on('click', '#busca_plano', function (){
     ajax_parametros('planos/buscar/tipo/pesquisa/div/buscar_plano','#corpo', '', '', 'get', 'html');
 });
 $(document).on('change', '#id_plano_pagamento', function () {
-    var url="/testelaravel/public/orcamento/planos/buscar/tipo/blur/json/";
+    var url="planos/buscar/tipo/blur/json/";
     var div="#retorno_plano_blur";
     var dados = $("#id_plano_pagamento").val();
     ajax_parametros(url+dados, div, '', '');  
@@ -621,14 +637,14 @@ $(document).on('click', '#busca_produto_referencia', function (){
 });
 
 $(document).on('change', '#id_produto', function () {
-    var url="/testelaravel/public/orcamento/produtos/buscar/tipo/blur/json/";
+    var url="produtos/buscar/tipo/blur/json/";
     var div="#retorno_produto_blur";
     var dados = $("#id_produto").val();
     ajax_parametros(url+dados, div, '', '');
     $("#preco_unit_produto").focus();
 });
 $(document).on('change', '#referencia_produto',function () {
-    var url="/testelaravel/public/orcamento/produtos/buscar/tipo/blurref/json/";
+    var url="produtos/buscar/tipo/blurref/json/";
     var div="#retorno_produto_blur";
     var dados = $("#referencia_produto").val();
     ajax_parametros(url+dados, div, '', '');  
@@ -727,7 +743,7 @@ $(document).on("click", "#gravar_orcamento", function () {
 $(document).on('click', '#editar_orcamento', function () {
     $(".active").find('td').each(function(index, value) {
            if(index===2){
-               chama_nj('editar/'+value.innerHTML,capta_width(),captaheight());
+               chama_nj('orcamento/editar/'+value.innerHTML,capta_width(),captaheight());
            }
         });
 });
@@ -776,14 +792,104 @@ $(document).on('click', '#cadastrar_categorias', function () {
     }
 });
 
-$(document).on('click', '.verificar_categoria', function () {
-    //alert('/MeliCategories/'+this.id);
-    //$("#div_nivel2").remove;
-    if(($("#div_nivel2").length) > 0)
+$(document).on('click', '#cadastrar_sub_categorias', function () {
+    var nivel = $(this).attr('nivel');
+    var checkbox = $('input:checkbox[name^=checkbox_categorie]:checked');
+    if(checkbox.length==0)
     {
-        //alert("haha");
+        alert("Nenhuma categoria selecionada"); //Ver no console
     }
-    ajax_parametros('MeliCategories/'+this.id,"#div_nivel2", '', 'add', 'get', 'html');
+    else
+    {
+        $(':checkbox').each(function() 
+        {
+            if(this.checked == true)
+            {
+                //alert("oi - "+checkbox.length);
+                //alert("#id_categorie_"+nivel);
+                $("#id_categorie_"+this.value).attr("disabled", false);
+                $("#descricao_categorie_"+this.value).attr("disabled", false);
+                //alert("#descricao_categorie_"+this.value);
+            };                        
+        });
+        $("#cadastrar_sub_categorias").attr("type","submit");
+        $("#cadastrar_sub_categorias").validate();
+        $("#cadastrar_sub_categorias").submit();
+    }
+});
+
+$(document).on('click', '.verificar_categoria', function () {
+    var nivel = $(this).attr('nivel');
+    //alert(nivel);
+    var newnivel = (nivel*1)+1;
+    
+    if(($("#div_nivel"+newnivel).length) > 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    else(($("#div_nivel"+newnivel).length) == 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    ajax_parametros('MeliCategories/'+this.id+'/nivel/'+nivel,"#div_nivel"+newnivel, '', 'add', 'get', 'html');
+
+});
+
+$(document).on('click', '.verificar_categoria_sistema', function () {
+    var nivel = $(this).attr('nivel');
+    //alert(nivel);
+    var newnivel = (nivel*1)+1;
+    
+    if(($("#div_nivel"+newnivel).length) > 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias_sistema").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    else(($("#div_nivel"+newnivel).length) == 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias_sistema").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    ajax_parametros('MeliCategories/sistema/'+this.id+'/nivel/'+nivel,"#div_nivel"+newnivel, '', 'add', 'get', 'html');
+
+});
+
+$(document).on('click', '.exibir_arvore', function () {
+    var nivel = $(this).attr('nivel');
+    //alert(nivel);
+    var newnivel = (nivel*1)+1;
+    
+    if(($("#div_nivel"+newnivel).length) > 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias_arvore").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    else(($("#div_nivel"+newnivel).length) == 0)
+    {
+        for(var i=newnivel;i<15;i++)
+        {
+            $("#div_nivel"+i).remove();
+        }
+        $("#categorias_arvore").append("<div id='div_nivel"+newnivel+"' name='div_nivel"+newnivel+"' class='col-sm-3' ></div>");
+    }
+    ajax_parametros('MeliCategories/arvore/'+this.id+'/nivel/'+nivel,"#div_nivel"+newnivel, '', 'add', 'get', 'html');
 
 });
 

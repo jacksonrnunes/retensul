@@ -352,11 +352,11 @@
                     </thead>
                     <tbody>
                         @foreach($resul_produtos as $produto)
-                        <tr onclick="preencher_campo_produto({{$produto->id}},'{{$produto->referencia}}','{{$produto->descricao}}','{{$produto->marca}}', '{{$produto->produto_preco_lista}}', '{{$produto->unidade}}', '{{$div}}')">
+                        <tr onclick="preencher_campo_produto({{$produto->id}},'{{$produto->referencia}}','{{utf8_encode($produto->descricao)}}','{{utf8_encode($produto->marca)}}', '{{$produto->produto_preco_lista}}', '{{$produto->unidade}}', '{{$div}}')">
                             <td nowrap='nowrap'>{{$produto->id}}</td>
                             <td nowrap='nowrap'>{{$produto->referencia}}</td>
-                            <td nowrap='nowrap'>{{$produto->descricao}}</td>
-                            <td nowrap='nowrap'>{{$produto->marca}}</td>
+                            <td nowrap='nowrap'>{{utf8_encode($produto->descricao)}}</td>
+                            <td nowrap='nowrap'>{{utf8_encode($produto->marca)}}</td>
                             <td nowrap='nowrap'>R$ {{sprintf("%01.2f",$produto->produto_preco_lista)}}</td>
                          </tr>
                          @endforeach
@@ -375,8 +375,8 @@
     @foreach($resul_produtos as $produto)
         <input value="{{$produto->id}}" type="hidden" id="id_produto_div" name="id_produto_div" />
         <input value="{{$produto->referencia}}" type="hidden" id="referencia_produto_div" name="referencia_produto_div" />
-        <input value="{{$produto->descricao}}" type="hidden" id="descricao_produto_div" name="descricao_produto_div" />
-        <input value="{{$produto->marca}}" type="hidden" id="marca_produto_div" name="marca_produto_div" />
+        <input value="{{utf8_encode($produto->descricao)}}" type="hidden" id="descricao_produto_div" name="descricao_produto_div" />
+        <input value="{{utf8_encode($produto->marca)}}" type="hidden" id="marca_produto_div" name="marca_produto_div" />
         <input value="{{$produto->produto_preco_lista}}" type="hidden" id="preco_produto_div" name="preco_produto_div" />
         <input value="{{$produto->unidade}}" type="hidden" id="unidade_produto_div" name="unidade_produto_div" />
     @endforeach

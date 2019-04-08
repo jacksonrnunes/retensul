@@ -235,5 +235,13 @@ h4{
     margin: 5px;
     background-color: #3E4095;
 }
+#categorias, #categorias_sistema{
+  overflow-x: auto;
+  white-space: nowrap;
+}
+#categorias > .col-sm-3, #categorias_sistema > .col-sm-3{
+  display: inline-block;
+  float: none;
+}
     
 

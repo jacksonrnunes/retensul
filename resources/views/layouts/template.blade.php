@@ -30,12 +30,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="orcamento/add">
+                            <a id="incluir_orcamento" name="incluir_orcamento" class="nav-link rounded-bottom" href="#">
                                 Incluir Orçamento
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="orcamento/listar">
+                            <a class="nav-link rounded-bottom" href="{{url('orcamento/listar')}}">
                                 Ver Orçamentos
                             </a>
                         </li>
@@ -48,12 +48,12 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="pedido/add">
+                            <a id="incluir_orcamento" name="incluir_orcamento" class="nav-link rounded-bottom" href="#">
                                 Incluir Pedido
                             </a>                                
                         </li>    
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="pedido/listar">
+                            <a class="nav-link rounded-bottom" href="{{url('pedido/listar')}}">
                                 Ver Pedidos
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                     <ul class="dropdown-menu sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <span class="bar-navegation"></span>
                         <li class="nav-item dropdown">
-                            <a class="nav-link rounded-bottom" href="MercadoLivre">
+                            <a class="nav-link rounded-bottom" href="{{url('MercadoLivre')}}">
                                 Ver Mercado Livre
                             </a>                                
                         </li>    

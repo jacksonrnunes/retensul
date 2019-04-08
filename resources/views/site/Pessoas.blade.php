@@ -77,12 +77,12 @@
                     $cliente->Obs = implode("`", explode("'", $cliente->Obs));
                     $cliente->Obs = str_replace("\r\n",";",trim($cliente->Obs));
                 @endphp
-		<tr style='cursor:pointer' onclick="preencher_campo_cliente({{$cliente->ID}},'{{$cliente->Nome}}','{{$cliente->Obs}}','{{$cliente->Fone1}}', '{{$div}}')">
+		<tr style='cursor:pointer' onclick="preencher_campo_cliente({{$cliente->ID}},'{{utf8_encode($cliente->Nome)}}','{{utf8_encode($cliente->Obs)}}','{{$cliente->Fone1}}', '{{$div}}')">
                     <td nowrap>{{$cliente->ID}}</td>
-		    <td nowrap>{{$cliente->Nome}}</td>
-		    <td nowrap>{{$cliente->Fantasia}}</td>
-		    <td nowrap>{{$cliente->Endereco}}</td>
-		    <td nowrap>{{$cliente->Cidade}}</td>
+		    <td nowrap>{{utf8_encode($cliente->Nome)}}</td>
+		    <td nowrap>{{utf8_encode($cliente->Fantasia)}}</td>
+		    <td nowrap>{{utf8_encode($cliente->Endereco)}}</td>
+		    <td nowrap>{{utf8_encode($cliente->Cidade)}}</td>
 		    <td nowrap>{{$cliente->CPFCNPJ}}</td>
 		    <td nowrap>{{$cliente->Fone1}}</td>
 		    <td nowrap>{{$cliente->Fone2}}</td>
@@ -106,14 +106,14 @@
             $cliente->Obs = str_replace("\r\n",";",trim($cliente->Obs));
         @endphp
             <input value="{{$cliente->ID}}" type="hidden" id="id_cliente_div" name="id_cliente_div" />
-            <input value="{{$cliente->Nome}}" type="hidden" id="nome_cliente_div" name="nome_cliente_div" />
-            <input value="{{$cliente->Fantasia}}" type="hidden" id="fantasia_cliente_div" name="fantasia_cliente_div" />
-            <input value="{{$cliente->Endereco}}" type="hidden" id="endereco_cliente_div" name="endereco_cliente_div" />
-            <input value="{{$cliente->Cidade}}" type="hidden" id="cidade_cliente_div" name="cidade_cliente_div" />
+            <input value="{{utf8_encode($cliente->Nome)}}" type="hidden" id="nome_cliente_div" name="nome_cliente_div" />
+            <input value="{{utf8_encode($cliente->Fantasia)}}" type="hidden" id="fantasia_cliente_div" name="fantasia_cliente_div" />
+            <input value="{{utf8_encode($cliente->Endereco)}}" type="hidden" id="endereco_cliente_div" name="endereco_cliente_div" />
+            <input value="{{utf8_encode($cliente->Cidade)}}" type="hidden" id="cidade_cliente_div" name="cidade_cliente_div" />
             <input value="{{$cliente->CPFCNPJ}}" type="hidden" id="cpfcnpj_cliente_div" name="cpfcnpj_cliente_div" />
             <input value="{{$cliente->Fone1}}" type="hidden" id="fone1_cliente_div" name="fone1_cliente_div" />
             <input value="{{$cliente->Fone2}}" type="hidden" id="fone2_cliente_div" name="fone2_cliente_div" />
-            <input value="{{$cliente->Obs}}" type="hidden" id="obs_cliente_div" name="obs_cliente_div" />
+            <input value="{{utf8_encode($cliente->Obs)}}" type="hidden" id="obs_cliente_div" name="obs_cliente_div" />
     @endforeach
   @else
      <input value="Não cadastrado" type="hidden" id="nome_cliente_div" name="nome_cliente_div" />
