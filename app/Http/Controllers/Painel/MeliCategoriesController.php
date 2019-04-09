@@ -113,10 +113,10 @@ class MeliCategoriesController extends Controller
                     {
                         echo $arvore[$i]['name']."<br/>";
                         $this->salvarArvore($arvore);
-                        $arvore[$i]['childrens'] = $this->arvoreRecursiva($arvore[$i]['id']);
+                        $arvore[$i]['children'] = $this->arvoreRecursiva($arvore[$i]['id']);
                         
                     }
-               // }
+               //}
             }
         }
         //print_r($arvore);
@@ -127,16 +127,9 @@ class MeliCategoriesController extends Controller
     }
     public function buscarArvore($id_categorie, $nivel)
     {
-        
-        
-        
-        $result = $this->arvoreRecursiva($id_categorie);
-        
+        $result = $this->arvoreRecursiva($id_categorie);   
         //print_r($result);
-        
         $SubCategorias = null;
-        
-        
         if(empty($result))
         {
             $tipo = 'vazio';
@@ -778,13 +771,16 @@ class MeliCategoriesController extends Controller
     public function salvarArvore($request)
     {
         $cont=0;
-        //print_r($request);
         //echo "<br/>".count($request->id_categorie)."<br/>";
         for ($i=0;$i<count($request);$i++)
         {   
             $MeliCategorie = new MeliCategories;
             $meli = new Meli('5147268795692492', 'hZ9XuZJnAStRnmoIATKTInw7JCo8HHkn');
             $MeliCategorie->meli_categorie_id_original = $request[$i]['id'];
+            $verificaCategorie = $MeliCategorie->returnId();
+            if($verificaCategorie == false)
+            {
+                //print_r($request[$i]);
             $MeliCategorie->meli_categorie_name = $request[$i]['name'];
             $MeliCategorie->meli_categorie_url_api = "https://api.mercadolibre.com/categories/".$request[$i]['id'];
             $result = $meli->get($MeliCategorie->meli_categorie_url_api);
@@ -1314,6 +1310,7 @@ class MeliCategoriesController extends Controller
                 }
             }
             $cont++;
+        }
         }
         $success = $cont.' categorias Salvas Com Sucesso!';
         return redirect()->action('Painel\MeliCategoriesController@buscarPrincipal')->with(compact('success'));
